@@ -1,0 +1,121 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="root">
+    <xs:annotation>
+      <xs:documentation>Telosys Database Repository</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="tableList">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="table" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="column" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:string" name="dbComment" use="optional"/>
+                            <xs:attribute type="xs:string" name="dbDefaultValue" use="optional"/>
+                            <xs:attribute type="xs:string" name="dbName" use="optional"/>
+                            <xs:attribute type="xs:string" name="dbNotNull" use="optional"/>
+                            <xs:attribute type="xs:byte" name="dbPosition" use="optional"/>
+                            <xs:attribute type="xs:byte" name="dbSize" use="optional"/>
+                            <xs:attribute type="xs:string" name="dbTypeName" use="optional"/>
+                            <xs:attribute type="xs:string" name="inputType" use="optional"/>
+                            <xs:attribute type="xs:string" name="javaName" use="optional"/>
+                            <xs:attribute type="xs:string" name="javaType" use="optional"/>
+                            <xs:attribute type="xs:byte" name="jdbcTypeCode" use="optional"/>
+                            <xs:attribute type="xs:string" name="label" use="optional"/>
+                            <xs:attribute type="xs:byte" name="maxLength" use="optional"/>
+                            <xs:attribute type="xs:string" name="notNull" use="optional"/>
+                            <xs:attribute type="xs:string" name="selected" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="link" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="joinColumns">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="joinColumn" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="insertable" use="optional"/>
+                                        <xs:attribute type="xs:string" name="name" use="optional"/>
+                                        <xs:attribute type="xs:string" name="nullable" use="optional"/>
+                                        <xs:attribute type="xs:string" name="referencedColumnName" use="optional"/>
+                                        <xs:attribute type="xs:string" name="unique" use="optional"/>
+                                        <xs:attribute type="xs:string" name="updatable" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="cardinality" use="optional"/>
+                        <xs:attribute type="xs:string" name="cascade" use="optional"/>
+                        <xs:attribute type="xs:string" name="fetch" use="optional"/>
+                        <xs:attribute type="xs:string" name="foreignKeyName" use="optional"/>
+                        <xs:attribute type="xs:string" name="id" use="optional"/>
+                        <xs:attribute type="xs:string" name="inverseSideOf" use="optional"/>
+                        <xs:attribute type="xs:string" name="javaName" use="optional"/>
+                        <xs:attribute type="xs:string" name="javaType" use="optional"/>
+                        <xs:attribute type="xs:string" name="joinTableName" use="optional"/>
+                        <xs:attribute type="xs:string" name="mappedBy" use="optional"/>
+                        <xs:attribute type="xs:string" name="optional" use="optional"/>
+                        <xs:attribute type="xs:string" name="owningSide" use="optional"/>
+                        <xs:attribute type="xs:string" name="sourceTableName" use="optional"/>
+                        <xs:attribute type="xs:string" name="targetEntity" use="optional"/>
+                        <xs:attribute type="xs:string" name="targetTableName" use="optional"/>
+                        <xs:attribute type="xs:string" name="used" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="fk" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="fkcol" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="colname" use="optional"/>
+                                  <xs:attribute type="xs:string" name="colref" use="optional"/>
+                                  <xs:attribute type="xs:byte" name="deferrable" use="optional"/>
+                                  <xs:attribute type="xs:byte" name="deleterule" use="optional"/>
+                                  <xs:attribute type="xs:byte" name="sequence" use="optional"/>
+                                  <xs:attribute type="xs:string" name="tablename" use="optional"/>
+                                  <xs:attribute type="xs:string" name="tableref" use="optional"/>
+                                  <xs:attribute type="xs:byte" name="updaterule" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="name" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="catalog" use="optional"/>
+                  <xs:attribute type="xs:string" name="databaseComment" use="optional"/>
+                  <xs:attribute type="xs:string" name="databaseType" use="optional"/>
+                  <xs:attribute type="xs:string" name="javaBean" use="optional"/>
+                  <xs:attribute type="xs:string" name="name" use="optional"/>
+                  <xs:attribute type="xs:string" name="schema" use="optional"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:byte" name="databaseId"/>
+            <xs:attribute type="xs:string" name="databaseName"/>
+            <xs:attribute type="xs:string" name="databaseProductName"/>
+            <xs:attribute type="xs:string" name="generation"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
