@@ -112,7 +112,7 @@ public class TbLinkJpaRecord implements Serializable {
     // GETTERS & SETTERS FOR FIELDS
     //----------------------------------------------------------------------
     //--- DATABASE MAPPING : CARDINALITY_TG ( VARCHAR ) 
-    public void setCardinalityTg( String cardinalityTg ) {
+    public void setCardinality( String cardinalityTg ) {
         this.cardinalityTg = cardinalityTg;
     }
     public String getCardinalityTg() {
@@ -120,18 +120,18 @@ public class TbLinkJpaRecord implements Serializable {
     }
 
     //--- DATABASE MAPPING : CASCADE_TG ( VARCHAR ) 
-    public void setCascadeTg( String cascadeTg ) {
+    public void setCascade( String cascadeTg ) {
         this.cascadeTg = cascadeTg;
     }
-    public String getCascadeTg() {
+    public String getCascade() {
         return this.cascadeTg;
     }
 
     //--- DATABASE MAPPING : FETCH_TG ( VARCHAR ) 
-    public void setFetchTg( String fetchTg ) {
+    public void setFetch( String fetchTg ) {
         this.fetchTg = fetchTg;
     }
-    public String getFetchTg() {
+    public String getFetch() {
         return this.fetchTg;
     }
 

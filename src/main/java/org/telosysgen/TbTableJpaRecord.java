@@ -90,18 +90,18 @@ public class TbTableJpaRecord implements Serializable {
     }
 
     //--- DATABASE MAPPING : COMMENT ( VARCHAR ) 
-    public void setComment( String comment ) {
+    public void setDatabaseComment( String comment ) {
         this.comment = comment;
     }
-    public String getComment() {
+    public String getDatabaseComment() {
         return this.comment;
     }
 
     //--- DATABASE MAPPING : TYPE ( VARCHAR ) 
-    public void setType( String type ) {
+    public void setDatabaseType( String type ) {
         this.type = type;
     }
-    public String getType() {
+    public String getDatabaseType() {
         return this.type;
     }
 
