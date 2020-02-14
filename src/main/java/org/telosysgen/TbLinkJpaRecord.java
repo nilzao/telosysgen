@@ -7,289 +7,300 @@ package org.telosysgen;
 
 import java.io.Serializable;
 
-
 import javax.persistence.*;
 
 /**
  * Persistent class for "TbLink" entity stored in table "TB_LINK" <br>
- * This class is a "record entity" without JPA links  <br>
+ * This class is a "record entity" without JPA links <br>
  *
  * @author Telosys
  *
  */
 @Entity
-@Table(name="TB_LINK", schema="PUBLIC" )
+@Table(name = "TB_LINK")
 // Define named queries here
-@NamedQueries ( {
-  @NamedQuery ( name="TbLinkJpaRecord.countAll",  query="SELECT COUNT(x) FROM TbLinkJpaRecord x" ),
-  @NamedQuery ( name="TbLinkJpaRecord.countById", query="SELECT COUNT(x) FROM TbLinkJpaRecord x WHERE x.idLink = ?1 " )
-} )
+@NamedQueries({ @NamedQuery(name = "TbLinkJpaRecord.countAll", query = "SELECT COUNT(x) FROM TbLinkJpaRecord x"),
+		@NamedQuery(name = "TbLinkJpaRecord.countById", query = "SELECT COUNT(x) FROM TbLinkJpaRecord x WHERE x.idLink = ?1 ") })
 public class TbLinkJpaRecord implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    //----------------------------------------------------------------------
-    // ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
-    //----------------------------------------------------------------------
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID_LINK", nullable=false)
-    private Long       idLink       ; 
+	// ----------------------------------------------------------------------
+	// ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
+	// ----------------------------------------------------------------------
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_LINK")
+	@Column(name = "ID_LINK", nullable = false)
+	private Long idLink;
 
-    //----------------------------------------------------------------------
-    // ENTITY DATA FIELDS 
-    //----------------------------------------------------------------------    
-    @Column(name="CARDINALITY_TG", length=100)
-    private String     cardinalityTg ; 
+	// ----------------------------------------------------------------------
+	// ENTITY DATA FIELDS
+	// ----------------------------------------------------------------------
+	@Column(name = "CARDINALITY_TG", length = 100)
+	private String cardinalityTg;
 
-    @Column(name="CASCADE_TG", length=100)
-    private String     cascadeTg    ; 
+	@Column(name = "CASCADE_TG", length = 100)
+	private String cascadeTg;
 
-    @Column(name="FETCH_TG", length=100)
-    private String     fetchTg      ; 
+	@Column(name = "FETCH_TG", length = 100)
+	private String fetchTg;
 
-    @Column(name="FOREIGN_KEY_NAME", length=100)
-    private String     foreignKeyName ; 
+	@Column(name = "FOREIGN_KEY_NAME", length = 100)
+	private String foreignKeyName;
 
-    @Column(name="ID", length=100)
-    private String     id           ; 
+	@Column(name = "ID", length = 100)
+	private String id;
 
-    @Column(name="INVERSE_SIDE_OF", length=100)
-    private String     inverseSideOf ; 
+	@Column(name = "INVERSE_SIDE_OF", length = 100)
+	private String inverseSideOf;
 
-    @Column(name="JAVA_NAME", length=100)
-    private String     javaName     ; 
+	@Column(name = "JAVA_NAME", length = 100)
+	private String javaName;
 
-    @Column(name="JAVA_TYPE", length=100)
-    private String     javaType     ; 
+	@Column(name = "JAVA_TYPE", length = 100)
+	private String javaType;
 
-    @Column(name="JOIN_TABLE_NAME", length=100)
-    private String     joinTableName ; 
+	@Column(name = "JOIN_TABLE_NAME", length = 100)
+	private String joinTableName;
 
-    @Column(name="MAPPED_BY", length=100)
-    private String     mappedBy     ; 
+	@Column(name = "MAPPED_BY", length = 100)
+	private String mappedBy;
 
-    @Column(name="OPTIONAL", length=100)
-    private String     optional     ; 
+	@Column(name = "OPTIONAL", length = 100)
+	private String optional;
 
-    @Column(name="OWNING_SIDE", length=100)
-    private String     owningSide   ; 
+	@Column(name = "OWNING_SIDE", length = 100)
+	private String owningSide;
 
-    @Column(name="SOURCE_TABLE_NAME", length=100)
-    private String     sourceTableName ; 
+	@Column(name = "SOURCE_TABLE_NAME", length = 100)
+	private String sourceTableName;
 
-    @Column(name="TARGET_ENTITY", length=100)
-    private String     targetEntity ; 
+	@Column(name = "TARGET_ENTITY", length = 100)
+	private String targetEntity;
 
-    @Column(name="TARGET_TABLE_NAME", length=100)
-    private String     targetTableName ; 
+	@Column(name = "TARGET_TABLE_NAME", length = 100)
+	private String targetTableName;
 
-    @Column(name="USED", length=100)
-    private String     used         ; 
+	@Column(name = "USED", length = 100)
+	private String used;
 
-    @Column(name="ID_TABLE")
-    private Long       idTable      ; // Foreign Key 
+	@ManyToOne
+	@JoinColumn(name = "ID_TABLE", referencedColumnName = "ID_TABLE", foreignKey = @ForeignKey(name = "FK_LINK_TABLE"))
+	private TbTableJpaRecord table;
 
-
-    //----------------------------------------------------------------------
-    // CONSTRUCTOR(S)
-    //----------------------------------------------------------------------
-    public TbLinkJpaRecord() {
+	// ----------------------------------------------------------------------
+	// CONSTRUCTOR(S)
+	// ----------------------------------------------------------------------
+	public TbLinkJpaRecord() {
 		super();
-    }
-    
-    //----------------------------------------------------------------------
-    // GETTER & SETTER FOR THE KEY FIELD
-    //----------------------------------------------------------------------
-    public void setIdLink( Long idLink ) {
-        this.idLink = idLink ;
-    }
-    public Long getIdLink() {
-        return this.idLink;
-    }
+	}
 
-    //----------------------------------------------------------------------
-    // GETTERS & SETTERS FOR FIELDS
-    //----------------------------------------------------------------------
-    //--- DATABASE MAPPING : CARDINALITY_TG ( VARCHAR ) 
-    public void setCardinality( String cardinalityTg ) {
-        this.cardinalityTg = cardinalityTg;
-    }
-    public String getCardinalityTg() {
-        return this.cardinalityTg;
-    }
+	// ----------------------------------------------------------------------
+	// GETTER & SETTER FOR THE KEY FIELD
+	// ----------------------------------------------------------------------
+	public void setIdLink(Long idLink) {
+		this.idLink = idLink;
+	}
 
-    //--- DATABASE MAPPING : CASCADE_TG ( VARCHAR ) 
-    public void setCascade( String cascadeTg ) {
-        this.cascadeTg = cascadeTg;
-    }
-    public String getCascade() {
-        return this.cascadeTg;
-    }
+	public Long getIdLink() {
+		return this.idLink;
+	}
 
-    //--- DATABASE MAPPING : FETCH_TG ( VARCHAR ) 
-    public void setFetch( String fetchTg ) {
-        this.fetchTg = fetchTg;
-    }
-    public String getFetch() {
-        return this.fetchTg;
-    }
+	// ----------------------------------------------------------------------
+	// GETTERS & SETTERS FOR FIELDS
+	// ----------------------------------------------------------------------
+	// --- DATABASE MAPPING : CARDINALITY_TG ( VARCHAR )
+	public void setCardinality(String cardinalityTg) {
+		this.cardinalityTg = cardinalityTg;
+	}
 
-    //--- DATABASE MAPPING : FOREIGN_KEY_NAME ( VARCHAR ) 
-    public void setForeignKeyName( String foreignKeyName ) {
-        this.foreignKeyName = foreignKeyName;
-    }
-    public String getForeignKeyName() {
-        return this.foreignKeyName;
-    }
+	public String getCardinalityTg() {
+		return this.cardinalityTg;
+	}
 
-    //--- DATABASE MAPPING : ID ( VARCHAR ) 
-    public void setId( String id ) {
-        this.id = id;
-    }
-    public String getId() {
-        return this.id;
-    }
+	// --- DATABASE MAPPING : CASCADE_TG ( VARCHAR )
+	public void setCascade(String cascadeTg) {
+		this.cascadeTg = cascadeTg;
+	}
 
-    //--- DATABASE MAPPING : INVERSE_SIDE_OF ( VARCHAR ) 
-    public void setInverseSideOf( String inverseSideOf ) {
-        this.inverseSideOf = inverseSideOf;
-    }
-    public String getInverseSideOf() {
-        return this.inverseSideOf;
-    }
+	public String getCascade() {
+		return this.cascadeTg;
+	}
 
-    //--- DATABASE MAPPING : JAVA_NAME ( VARCHAR ) 
-    public void setJavaName( String javaName ) {
-        this.javaName = javaName;
-    }
-    public String getJavaName() {
-        return this.javaName;
-    }
+	// --- DATABASE MAPPING : FETCH_TG ( VARCHAR )
+	public void setFetch(String fetchTg) {
+		this.fetchTg = fetchTg;
+	}
 
-    //--- DATABASE MAPPING : JAVA_TYPE ( VARCHAR ) 
-    public void setJavaType( String javaType ) {
-        this.javaType = javaType;
-    }
-    public String getJavaType() {
-        return this.javaType;
-    }
+	public String getFetch() {
+		return this.fetchTg;
+	}
 
-    //--- DATABASE MAPPING : JOIN_TABLE_NAME ( VARCHAR ) 
-    public void setJoinTableName( String joinTableName ) {
-        this.joinTableName = joinTableName;
-    }
-    public String getJoinTableName() {
-        return this.joinTableName;
-    }
+	// --- DATABASE MAPPING : FOREIGN_KEY_NAME ( VARCHAR )
+	public void setForeignKeyName(String foreignKeyName) {
+		this.foreignKeyName = foreignKeyName;
+	}
 
-    //--- DATABASE MAPPING : MAPPED_BY ( VARCHAR ) 
-    public void setMappedBy( String mappedBy ) {
-        this.mappedBy = mappedBy;
-    }
-    public String getMappedBy() {
-        return this.mappedBy;
-    }
+	public String getForeignKeyName() {
+		return this.foreignKeyName;
+	}
 
-    //--- DATABASE MAPPING : OPTIONAL ( VARCHAR ) 
-    public void setOptional( String optional ) {
-        this.optional = optional;
-    }
-    public String getOptional() {
-        return this.optional;
-    }
+	// --- DATABASE MAPPING : ID ( VARCHAR )
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    //--- DATABASE MAPPING : OWNING_SIDE ( VARCHAR ) 
-    public void setOwningSide( String owningSide ) {
-        this.owningSide = owningSide;
-    }
-    public String getOwningSide() {
-        return this.owningSide;
-    }
+	public String getId() {
+		return this.id;
+	}
 
-    //--- DATABASE MAPPING : SOURCE_TABLE_NAME ( VARCHAR ) 
-    public void setSourceTableName( String sourceTableName ) {
-        this.sourceTableName = sourceTableName;
-    }
-    public String getSourceTableName() {
-        return this.sourceTableName;
-    }
+	// --- DATABASE MAPPING : INVERSE_SIDE_OF ( VARCHAR )
+	public void setInverseSideOf(String inverseSideOf) {
+		this.inverseSideOf = inverseSideOf;
+	}
 
-    //--- DATABASE MAPPING : TARGET_ENTITY ( VARCHAR ) 
-    public void setTargetEntity( String targetEntity ) {
-        this.targetEntity = targetEntity;
-    }
-    public String getTargetEntity() {
-        return this.targetEntity;
-    }
+	public String getInverseSideOf() {
+		return this.inverseSideOf;
+	}
 
-    //--- DATABASE MAPPING : TARGET_TABLE_NAME ( VARCHAR ) 
-    public void setTargetTableName( String targetTableName ) {
-        this.targetTableName = targetTableName;
-    }
-    public String getTargetTableName() {
-        return this.targetTableName;
-    }
+	// --- DATABASE MAPPING : JAVA_NAME ( VARCHAR )
+	public void setJavaName(String javaName) {
+		this.javaName = javaName;
+	}
 
-    //--- DATABASE MAPPING : USED ( VARCHAR ) 
-    public void setUsed( String used ) {
-        this.used = used;
-    }
-    public String getUsed() {
-        return this.used;
-    }
+	public String getJavaName() {
+		return this.javaName;
+	}
 
-    //--- DATABASE MAPPING : ID_TABLE ( BIGINT ) 
-    public void setIdTable( Long idTable ) {
-        this.idTable = idTable;
-    }
-    public Long getIdTable() {
-        return this.idTable;
-    }
+	// --- DATABASE MAPPING : JAVA_TYPE ( VARCHAR )
+	public void setJavaType(String javaType) {
+		this.javaType = javaType;
+	}
 
+	public String getJavaType() {
+		return this.javaType;
+	}
 
-    //----------------------------------------------------------------------
-    // toString METHOD
-    //----------------------------------------------------------------------
-    public String toString() { 
-        StringBuffer sb = new StringBuffer(); 
-        sb.append("["); 
-        sb.append(idLink);
-        sb.append("]:"); 
-        sb.append(cardinalityTg);
-        sb.append("|");
-        sb.append(cascadeTg);
-        sb.append("|");
-        sb.append(fetchTg);
-        sb.append("|");
-        sb.append(foreignKeyName);
-        sb.append("|");
-        sb.append(id);
-        sb.append("|");
-        sb.append(inverseSideOf);
-        sb.append("|");
-        sb.append(javaName);
-        sb.append("|");
-        sb.append(javaType);
-        sb.append("|");
-        sb.append(joinTableName);
-        sb.append("|");
-        sb.append(mappedBy);
-        sb.append("|");
-        sb.append(optional);
-        sb.append("|");
-        sb.append(owningSide);
-        sb.append("|");
-        sb.append(sourceTableName);
-        sb.append("|");
-        sb.append(targetEntity);
-        sb.append("|");
-        sb.append(targetTableName);
-        sb.append("|");
-        sb.append(used);
-        sb.append("|");
-        sb.append(idTable);
-        return sb.toString(); 
-    } 
+	// --- DATABASE MAPPING : JOIN_TABLE_NAME ( VARCHAR )
+	public void setJoinTableName(String joinTableName) {
+		this.joinTableName = joinTableName;
+	}
+
+	public String getJoinTableName() {
+		return this.joinTableName;
+	}
+
+	// --- DATABASE MAPPING : MAPPED_BY ( VARCHAR )
+	public void setMappedBy(String mappedBy) {
+		this.mappedBy = mappedBy;
+	}
+
+	public String getMappedBy() {
+		return this.mappedBy;
+	}
+
+	// --- DATABASE MAPPING : OPTIONAL ( VARCHAR )
+	public void setOptional(String optional) {
+		this.optional = optional;
+	}
+
+	public String getOptional() {
+		return this.optional;
+	}
+
+	// --- DATABASE MAPPING : OWNING_SIDE ( VARCHAR )
+	public void setOwningSide(String owningSide) {
+		this.owningSide = owningSide;
+	}
+
+	public String getOwningSide() {
+		return this.owningSide;
+	}
+
+	// --- DATABASE MAPPING : SOURCE_TABLE_NAME ( VARCHAR )
+	public void setSourceTableName(String sourceTableName) {
+		this.sourceTableName = sourceTableName;
+	}
+
+	public String getSourceTableName() {
+		return this.sourceTableName;
+	}
+
+	// --- DATABASE MAPPING : TARGET_ENTITY ( VARCHAR )
+	public void setTargetEntity(String targetEntity) {
+		this.targetEntity = targetEntity;
+	}
+
+	public String getTargetEntity() {
+		return this.targetEntity;
+	}
+
+	// --- DATABASE MAPPING : TARGET_TABLE_NAME ( VARCHAR )
+	public void setTargetTableName(String targetTableName) {
+		this.targetTableName = targetTableName;
+	}
+
+	public String getTargetTableName() {
+		return this.targetTableName;
+	}
+
+	// --- DATABASE MAPPING : USED ( VARCHAR )
+	public void setUsed(String used) {
+		this.used = used;
+	}
+
+	public String getUsed() {
+		return this.used;
+	}
+
+	public TbTableJpaRecord getTable() {
+		return table;
+	}
+
+	public void setTable(TbTableJpaRecord table) {
+		this.table = table;
+	}
+
+	// ----------------------------------------------------------------------
+	// toString METHOD
+	// ----------------------------------------------------------------------
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("[");
+		sb.append(idLink);
+		sb.append("]:");
+		sb.append(cardinalityTg);
+		sb.append("|");
+		sb.append(cascadeTg);
+		sb.append("|");
+		sb.append(fetchTg);
+		sb.append("|");
+		sb.append(foreignKeyName);
+		sb.append("|");
+		sb.append(id);
+		sb.append("|");
+		sb.append(inverseSideOf);
+		sb.append("|");
+		sb.append(javaName);
+		sb.append("|");
+		sb.append(javaType);
+		sb.append("|");
+		sb.append(joinTableName);
+		sb.append("|");
+		sb.append(mappedBy);
+		sb.append("|");
+		sb.append(optional);
+		sb.append("|");
+		sb.append(owningSide);
+		sb.append("|");
+		sb.append(sourceTableName);
+		sb.append("|");
+		sb.append(targetEntity);
+		sb.append("|");
+		sb.append(targetTableName);
+		sb.append("|");
+		sb.append(used);
+		return sb.toString();
+	}
 
 }

@@ -6,108 +6,128 @@
 package org.telosysgen;
 
 import java.io.Serializable;
+import java.util.List;
 
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * Persistent class for "TbDatabase" entity stored in table "TB_DATABASE" <br>
- * This class is a "record entity" without JPA links  <br>
+ * This class is a "record entity" without JPA links <br>
  *
  * @author Telosys
  *
  */
 @Entity
-@Table(name="TB_DATABASE", schema="PUBLIC" )
+@Table(name = "TB_DATABASE")
 // Define named queries here
-@NamedQueries ( {
-  @NamedQuery ( name="TbDatabaseJpaRecord.countAll",  query="SELECT COUNT(x) FROM TbDatabaseJpaRecord x" ),
-  @NamedQuery ( name="TbDatabaseJpaRecord.countById", query="SELECT COUNT(x) FROM TbDatabaseJpaRecord x WHERE x.idDatabase = ?1 " )
-} )
+@NamedQueries({ @NamedQuery(name = "TbDatabaseJpaRecord.countAll", query = "SELECT COUNT(x) FROM TbDatabaseJpaRecord x"),
+		@NamedQuery(name = "TbDatabaseJpaRecord.countById", query = "SELECT COUNT(x) FROM TbDatabaseJpaRecord x WHERE x.idDatabase = ?1 ") })
 public class TbDatabaseJpaRecord implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    //----------------------------------------------------------------------
-    // ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
-    //----------------------------------------------------------------------
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID_DATABASE", nullable=false)
-    private Long       idDatabase   ; 
+	// ----------------------------------------------------------------------
+	// ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
+	// ----------------------------------------------------------------------
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_DATABASE")
+	@Column(name = "ID_DATABASE", nullable = false)
+	private Long idDatabase;
 
-    //----------------------------------------------------------------------
-    // ENTITY DATA FIELDS 
-    //----------------------------------------------------------------------    
-    @Column(name="NAME", length=100)
-    private String     name         ; 
+	// ----------------------------------------------------------------------
+	// ENTITY DATA FIELDS
+	// ----------------------------------------------------------------------
+	@Column(name = "NAME", length = 100)
+	private String name;
 
-    @Column(name="PRODUCT_NAME", length=100)
-    private String     productName  ; 
+	@Column(name = "PRODUCT_NAME", length = 100)
+	private String productName;
 
-    @Column(name="GENERATION", length=100)
-    private String     generation   ; 
+	@Column(name = "GENERATION", length = 100)
+	private String generation;
 
+	@OneToMany(mappedBy = "database", fetch = FetchType.LAZY, targetEntity = TbTableJpaRecord.class)
+	private List<TbTableJpaRecord> tableList;
 
-    //----------------------------------------------------------------------
-    // CONSTRUCTOR(S)
-    //----------------------------------------------------------------------
-    public TbDatabaseJpaRecord() {
+	// ----------------------------------------------------------------------
+	// CONSTRUCTOR(S)
+	// ----------------------------------------------------------------------
+	public TbDatabaseJpaRecord() {
 		super();
-    }
-    
-    //----------------------------------------------------------------------
-    // GETTER & SETTER FOR THE KEY FIELD
-    //----------------------------------------------------------------------
-    public void setIdDatabase( Long idDatabase ) {
-        this.idDatabase = idDatabase ;
-    }
-    public Long getIdDatabase() {
-        return this.idDatabase;
-    }
+	}
 
-    //----------------------------------------------------------------------
-    // GETTERS & SETTERS FOR FIELDS
-    //----------------------------------------------------------------------
-    //--- DATABASE MAPPING : NAME ( VARCHAR ) 
-    public void setDatabaseName( String name ) {
-        this.name = name;
-    }
-    public String getDatabaseName() {
-        return this.name;
-    }
+	// ----------------------------------------------------------------------
+	// GETTER & SETTER FOR THE KEY FIELD
+	// ----------------------------------------------------------------------
+	public void setIdDatabase(Long idDatabase) {
+		this.idDatabase = idDatabase;
+	}
 
-    //--- DATABASE MAPPING : PRODUCT_NAME ( VARCHAR ) 
-    public void setDatabaseProductName( String productName ) {
-        this.productName = productName;
-    }
-    public String getDatabaseProductName() {
-        return this.productName;
-    }
+	public Long getIdDatabase() {
+		return this.idDatabase;
+	}
 
-    //--- DATABASE MAPPING : GENERATION ( VARCHAR ) 
-    public void setGeneration( String generation ) {
-        this.generation = generation;
-    }
-    public String getGeneration() {
-        return this.generation;
-    }
+	// ----------------------------------------------------------------------
+	// GETTERS & SETTERS FOR FIELDS
+	// ----------------------------------------------------------------------
+	// --- DATABASE MAPPING : NAME ( VARCHAR )
+	public void setDatabaseName(String name) {
+		this.name = name;
+	}
 
+	public String getDatabaseName() {
+		return this.name;
+	}
 
-    //----------------------------------------------------------------------
-    // toString METHOD
-    //----------------------------------------------------------------------
-    public String toString() { 
-        StringBuffer sb = new StringBuffer(); 
-        sb.append("["); 
-        sb.append(idDatabase);
-        sb.append("]:"); 
-        sb.append(name);
-        sb.append("|");
-        sb.append(productName);
-        sb.append("|");
-        sb.append(generation);
-        return sb.toString(); 
-    } 
+	// --- DATABASE MAPPING : PRODUCT_NAME ( VARCHAR )
+	public void setDatabaseProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public String getDatabaseProductName() {
+		return this.productName;
+	}
+
+	// --- DATABASE MAPPING : GENERATION ( VARCHAR )
+	public void setGeneration(String generation) {
+		this.generation = generation;
+	}
+
+	public String getGeneration() {
+		return this.generation;
+	}
+
+	public List<TbTableJpaRecord> getTableList() {
+		return tableList;
+	}
+
+	public void setTableList(List<TbTableJpaRecord> tableList) {
+		this.tableList = tableList;
+	}
+
+	// ----------------------------------------------------------------------
+	// toString METHOD
+	// ----------------------------------------------------------------------
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("[");
+		sb.append(idDatabase);
+		sb.append("]:");
+		sb.append(name);
+		sb.append("|");
+		sb.append(productName);
+		sb.append("|");
+		sb.append(generation);
+		return sb.toString();
+	}
 
 }

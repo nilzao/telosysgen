@@ -7,107 +7,104 @@ package org.telosysgen;
 
 import java.io.Serializable;
 
-
 import javax.persistence.*;
 
 /**
  * Persistent class for "TbFk" entity stored in table "TB_FK" <br>
- * This class is a "record entity" without JPA links  <br>
+ * This class is a "record entity" without JPA links <br>
  *
  * @author Telosys
  *
  */
 @Entity
-@Table(name="TB_FK", schema="PUBLIC" )
+@Table(name = "TB_FK")
 // Define named queries here
-@NamedQueries ( {
-  @NamedQuery ( name="TbFkJpaRecord.countAll",  query="SELECT COUNT(x) FROM TbFkJpaRecord x" ),
-  @NamedQuery ( name="TbFkJpaRecord.countById", query="SELECT COUNT(x) FROM TbFkJpaRecord x WHERE x.idFk = ?1 " )
-} )
+@NamedQueries({ @NamedQuery(name = "TbFkJpaRecord.countAll", query = "SELECT COUNT(x) FROM TbFkJpaRecord x"),
+		@NamedQuery(name = "TbFkJpaRecord.countById", query = "SELECT COUNT(x) FROM TbFkJpaRecord x WHERE x.idFk = ?1 ") })
 public class TbFkJpaRecord implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    //----------------------------------------------------------------------
-    // ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
-    //----------------------------------------------------------------------
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID_FK", nullable=false)
-    private Long       idFk         ; 
+	// ----------------------------------------------------------------------
+	// ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
+	// ----------------------------------------------------------------------
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_FK")
+	@Column(name = "ID_FK", nullable = false)
+	private Long idFk;
 
-    //----------------------------------------------------------------------
-    // ENTITY DATA FIELDS 
-    //----------------------------------------------------------------------    
-    @Column(name="FKCOL", length=100)
-    private String     fkcol        ; 
+	// ----------------------------------------------------------------------
+	// ENTITY DATA FIELDS
+	// ----------------------------------------------------------------------
+	@Column(name = "FKCOL", length = 100)
+	private String fkcol;
 
-    @Column(name="NAME", length=100)
-    private String     name         ; 
+	@Column(name = "NAME", length = 100)
+	private String name;
 
-    @Column(name="ID_TABLE")
-    private Long       idTable      ; // Foreign Key 
+	@ManyToOne
+	@JoinColumn(name = "ID_TABLE", referencedColumnName = "ID_TABLE", foreignKey = @ForeignKey(name = "FK_FK_TABLE"))
+	private TbTableJpaRecord table;
 
-
-    //----------------------------------------------------------------------
-    // CONSTRUCTOR(S)
-    //----------------------------------------------------------------------
-    public TbFkJpaRecord() {
+	// ----------------------------------------------------------------------
+	// CONSTRUCTOR(S)
+	// ----------------------------------------------------------------------
+	public TbFkJpaRecord() {
 		super();
-    }
-    
-    //----------------------------------------------------------------------
-    // GETTER & SETTER FOR THE KEY FIELD
-    //----------------------------------------------------------------------
-    public void setIdFk( Long idFk ) {
-        this.idFk = idFk ;
-    }
-    public Long getIdFk() {
-        return this.idFk;
-    }
+	}
 
-    //----------------------------------------------------------------------
-    // GETTERS & SETTERS FOR FIELDS
-    //----------------------------------------------------------------------
-    //--- DATABASE MAPPING : FKCOL ( VARCHAR ) 
-    public void setFkcol( String fkcol ) {
-        this.fkcol = fkcol;
-    }
-    public String getFkcol() {
-        return this.fkcol;
-    }
+	// ----------------------------------------------------------------------
+	// GETTER & SETTER FOR THE KEY FIELD
+	// ----------------------------------------------------------------------
+	public void setIdFk(Long idFk) {
+		this.idFk = idFk;
+	}
 
-    //--- DATABASE MAPPING : NAME ( VARCHAR ) 
-    public void setName( String name ) {
-        this.name = name;
-    }
-    public String getName() {
-        return this.name;
-    }
+	public Long getIdFk() {
+		return this.idFk;
+	}
 
-    //--- DATABASE MAPPING : ID_TABLE ( BIGINT ) 
-    public void setIdTable( Long idTable ) {
-        this.idTable = idTable;
-    }
-    public Long getIdTable() {
-        return this.idTable;
-    }
+	// ----------------------------------------------------------------------
+	// GETTERS & SETTERS FOR FIELDS
+	// ----------------------------------------------------------------------
+	// --- DATABASE MAPPING : FKCOL ( VARCHAR )
+	public void setFkcol(String fkcol) {
+		this.fkcol = fkcol;
+	}
 
+	public String getFkcol() {
+		return this.fkcol;
+	}
 
-    //----------------------------------------------------------------------
-    // toString METHOD
-    //----------------------------------------------------------------------
-    public String toString() { 
-        StringBuffer sb = new StringBuffer(); 
-        sb.append("["); 
-        sb.append(idFk);
-        sb.append("]:"); 
-        sb.append(fkcol);
-        sb.append("|");
-        sb.append(name);
-        sb.append("|");
-        sb.append(idTable);
-        return sb.toString(); 
-    } 
+	// --- DATABASE MAPPING : NAME ( VARCHAR )
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public TbTableJpaRecord getTable() {
+		return table;
+	}
+
+	public void setTable(TbTableJpaRecord table) {
+		this.table = table;
+	}
+
+	// ----------------------------------------------------------------------
+	// toString METHOD
+	// ----------------------------------------------------------------------
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("[");
+		sb.append(idFk);
+		sb.append("]:");
+		sb.append(fkcol);
+		sb.append("|");
+		sb.append(name);
+		return sb.toString();
+	}
 
 }
