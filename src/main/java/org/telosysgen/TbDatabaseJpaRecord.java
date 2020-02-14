@@ -70,18 +70,18 @@ public class TbDatabaseJpaRecord implements Serializable {
     // GETTERS & SETTERS FOR FIELDS
     //----------------------------------------------------------------------
     //--- DATABASE MAPPING : NAME ( VARCHAR ) 
-    public void setName( String name ) {
+    public void setDatabaseName( String name ) {
         this.name = name;
     }
-    public String getName() {
+    public String getDatabaseName() {
         return this.name;
     }
 
     //--- DATABASE MAPPING : PRODUCT_NAME ( VARCHAR ) 
-    public void setProductName( String productName ) {
+    public void setDatabaseProductName( String productName ) {
         this.productName = productName;
     }
-    public String getProductName() {
+    public String getDatabaseProductName() {
         return this.productName;
     }
 
