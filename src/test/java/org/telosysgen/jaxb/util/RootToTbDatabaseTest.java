@@ -124,7 +124,7 @@ public class RootToTbDatabaseTest {
 		stringBuilderTest.append("    </tableList>\n");
 		stringBuilderTest.append("</root>\n");
 		String dbrepString = stringBuilderTest.toString();
-		Root root = (Root) UnmarshalXML.unMarshal(dbrepString, Root.class);
+		Root root = UnmarshalXML.unMarshal(dbrepString, Root.class);
 		RootToTbDatabase rootToTbDatabase = new RootToTbDatabase();
 		TbDatabaseJpaRecord tbDatabaseJpaRecord = rootToTbDatabase.convert(root);
 		entityManager.persistAndFlush(tbDatabaseJpaRecord);
