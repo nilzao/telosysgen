@@ -2,6 +2,9 @@ package org.telosysgen;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Optional;
+
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,16 +21,24 @@ public class TableRepositoryTest {
 	@Autowired
 	private TestEntityManager entityManager;
 
-	@Test
+	@Autowired
+	private TableRepository tableRepository;
+
+	@Before
 	public void saveTable() {
 		TbDatabaseJpaRecord tbDatabaseJpaRecord = new TbDatabaseJpaRecord();
 		tbDatabaseJpaRecord.setDatabaseName("arroy");
 		TbTableJpaRecord tbTableJpaRecord = new TbTableJpaRecord();
 		tbTableJpaRecord.setName("table test");
 		tbTableJpaRecord.setDatabase(tbDatabaseJpaRecord);
-		TbTableJpaRecord persistAndFlush = entityManager.persistAndFlush(tbTableJpaRecord);
-		TbTableJpaRecord find = entityManager.find(TbTableJpaRecord.class, persistAndFlush.getIdTable());
-		assertEquals(find.getName(), "table test");
-		assertEquals(find.getDatabase().getDatabaseName(), "arroy");
+		entityManager.persistAndFlush(tbTableJpaRecord);
 	}
+
+	@Test
+	public void find() {
+		Optional<TbTableJpaRecord> findById = tableRepository.findById(1l);
+		assertEquals(findById.get().getName(), "table test");
+		assertEquals(findById.get().getDatabase().getDatabaseName(), "arroy");
+	}
+
 }
