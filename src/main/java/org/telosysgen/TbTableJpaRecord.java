@@ -8,6 +8,7 @@ package org.telosysgen;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -67,17 +68,17 @@ public class TbTableJpaRecord implements Serializable {
 	@Column(name = "SCHEMA", length = 100)
 	private String schema;
 
-	@ManyToOne
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
 	@JoinColumn(name = "ID_DATABASE", referencedColumnName = "ID_DATABASE", foreignKey = @ForeignKey(name = "FK_TABLE_DATABASE"))
 	private TbDatabaseJpaRecord database;
 
-	@OneToMany(mappedBy = "table", fetch = FetchType.LAZY, targetEntity = TbColumnJpaRecord.class)
+	@OneToMany(mappedBy = "table", fetch = FetchType.LAZY, targetEntity = TbColumnJpaRecord.class, cascade = { CascadeType.MERGE, CascadeType.PERSIST })
 	private List<TbColumnJpaRecord> columnList;
 
-	@OneToMany(mappedBy = "table", fetch = FetchType.LAZY, targetEntity = TbFkJpaRecord.class)
+	@OneToMany(mappedBy = "table", fetch = FetchType.LAZY, targetEntity = TbFkJpaRecord.class, cascade = { CascadeType.MERGE, CascadeType.PERSIST })
 	private List<TbFkJpaRecord> fkList;
 
-	@OneToMany(mappedBy = "table", fetch = FetchType.LAZY, targetEntity = TbLinkJpaRecord.class)
+	@OneToMany(mappedBy = "table", fetch = FetchType.LAZY, targetEntity = TbLinkJpaRecord.class, cascade = { CascadeType.MERGE, CascadeType.PERSIST })
 	private List<TbLinkJpaRecord> linkList;
 
 	// ----------------------------------------------------------------------

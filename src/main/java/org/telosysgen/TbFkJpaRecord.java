@@ -42,7 +42,7 @@ public class TbFkJpaRecord implements Serializable {
 	@Column(name = "NAME", length = 100)
 	private String name;
 
-	@ManyToOne
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
 	@JoinColumn(name = "ID_TABLE", referencedColumnName = "ID_TABLE", foreignKey = @ForeignKey(name = "FK_FK_TABLE"))
 	private TbTableJpaRecord table;
 

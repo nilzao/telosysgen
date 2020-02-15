@@ -8,6 +8,7 @@ package org.telosysgen;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -55,7 +56,7 @@ public class TbDatabaseJpaRecord implements Serializable {
 	@Column(name = "GENERATION", length = 100)
 	private String generation;
 
-	@OneToMany(mappedBy = "database", fetch = FetchType.LAZY, targetEntity = TbTableJpaRecord.class)
+	@OneToMany(mappedBy = "database", fetch = FetchType.LAZY, targetEntity = TbTableJpaRecord.class, cascade = { CascadeType.MERGE, CascadeType.PERSIST })
 	private List<TbTableJpaRecord> tableList;
 
 	// ----------------------------------------------------------------------

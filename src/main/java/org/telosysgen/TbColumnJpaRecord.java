@@ -81,7 +81,7 @@ public class TbColumnJpaRecord implements Serializable {
 	@Column(name = "SELECTED", length = 100)
 	private String selected;
 
-	@ManyToOne
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
 	@JoinColumn(name = "ID_TABLE", referencedColumnName = "ID_TABLE", foreignKey = @ForeignKey(name = "FK_COLUMN_TABLE"))
 	private TbTableJpaRecord table;
 

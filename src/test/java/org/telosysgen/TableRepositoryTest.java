@@ -25,9 +25,8 @@ public class TableRepositoryTest {
 		TbTableJpaRecord tbTableJpaRecord = new TbTableJpaRecord();
 		tbTableJpaRecord.setName("table test");
 		tbTableJpaRecord.setDatabase(tbDatabaseJpaRecord);
-		entityManager.persistAndFlush(tbDatabaseJpaRecord);
-		entityManager.persistAndFlush(tbTableJpaRecord);
-		TbTableJpaRecord find = entityManager.find(TbTableJpaRecord.class, 1l);
+		TbTableJpaRecord persistAndFlush = entityManager.persistAndFlush(tbTableJpaRecord);
+		TbTableJpaRecord find = entityManager.find(TbTableJpaRecord.class, persistAndFlush.getIdTable());
 		assertEquals(find.getName(), "table test");
 		assertEquals(find.getDatabase().getDatabaseName(), "arroy");
 	}
