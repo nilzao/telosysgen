@@ -18,7 +18,7 @@ public class FileUploadController {
 	@Autowired
 	private DataBaseRepository dataBaseRepository;
 
-	@PostMapping("/")
+	@PostMapping("/upload")
 	public String handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
 		try {
 			Root root = UnmarshalXML.unMarshal(file.getInputStream(), Root.class);
