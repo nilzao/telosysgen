@@ -79,7 +79,7 @@ Ext.define('TelosysGen.view.main.Index', {
 			title : 'Tables',
 			autoLoad : true,
 			store : {
-				type:'table'
+				type : 'table'
 			},
 			columns : [ {
 				text : 'Id',

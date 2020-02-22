@@ -1,7 +1,7 @@
 Ext.define('TelosysGen.store.Table', {
 	extend : 'Ext.data.Store',
 	alias : 'store.table',
-	fields : [ 'id', 'name' ],
+	model : 'TelosysGen.model.Table',
 	proxy : {
 		type : 'rest',
 		url : 'http://localhost:8080/table',
