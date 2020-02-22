@@ -34,6 +34,19 @@ Ext.define('TelosysGen.view.main.MainView', {
 		items : [ {
 			rootVisible : true,
 			xtype : 'treelist',
+			listeners : {
+				selectionchange : function(thisObj, record, eOpts) {
+					var contentwindow = Ext.getCmp('contentwindow');
+					contentwindow.removeAll(true);
+					console.log(record);
+					if (typeof record.getData().xtypeTmp !== 'undefined') {
+						console.log(record.getData().xtypeTmp);
+						contentwindow.add({
+							xtype : record.getData().xtypeTmp
+						});
+					}
+				}
+			},
 			store : {
 				root : {
 					expanded : true,
@@ -57,10 +70,11 @@ Ext.define('TelosysGen.view.main.MainView', {
 					}, {
 						text : 'buy lottery tickets',
 						leaf : true,
+						xtypeTmp : 'tablelist',
 						iconCls : 'x-fa fa-usd'
 					} ]
 				}
-			}
+			},
 		}, {
 			xtype : 'button',
 			text : 'click me',
