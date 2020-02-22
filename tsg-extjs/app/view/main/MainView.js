@@ -28,10 +28,40 @@ Ext.define('TelosysGen.view.main.MainView', {
 		collapsible : true,
 		// collapseMode : 'mini',
 		margin : '5 0 0 0',
-		width : 150,
+		width : 200,
 		minWidth : 100,
 		maxWidth : 250,
 		items : [ {
+			rootVisible : true,
+			xtype : 'treelist',
+			store : {
+				root : {
+					expanded : true,
+					children : [ {
+						text : 'detention',
+						leaf : true,
+						iconCls : 'x-fa fa-frown-o'
+					}, {
+						text : 'homework',
+						expanded : true,
+						iconCls : 'x-fa fa-folder',
+						children : [ {
+							text : 'book report',
+							leaf : true,
+							iconCls : 'x-fa fa-book'
+						}, {
+							text : 'algebra',
+							leaf : true,
+							iconCls : 'x-fa fa-graduation-cap'
+						} ]
+					}, {
+						text : 'buy lottery tickets',
+						leaf : true,
+						iconCls : 'x-fa fa-usd'
+					} ]
+				}
+			}
+		}, {
 			xtype : 'button',
 			text : 'click me',
 			handler : function(a, b) {
