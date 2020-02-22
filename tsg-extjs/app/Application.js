@@ -5,7 +5,7 @@
  */
 Ext.define('TelosysGen.Application', {
     extend: 'Ext.app.Application',
-
+    mainView:'TelosysGen.view.main.Index',
     name: 'TelosysGen',
 
     quickTips: false,
