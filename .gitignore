@@ -32,4 +32,5 @@ telosys/
 /tsg-extjs/*
 !/tsg-extjs/app/
 !/tsg-extjs/app.js
+!/tsg-extjs/app.json
 

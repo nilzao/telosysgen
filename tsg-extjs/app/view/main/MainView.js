@@ -31,72 +31,56 @@ Ext.define('TelosysGen.view.main.MainView', {
 		width : 200,
 		minWidth : 100,
 		maxWidth : 250,
-		items : [ {
-			rootVisible : true,
-			xtype : 'treelist',
-			listeners : {
-				selectionchange : function(thisObj, record, eOpts) {
-					var contentwindow = Ext.getCmp('contentwindow');
-					contentwindow.removeAll(true);
-					console.log(record);
-					if (typeof record.getData().xtypeTmp !== 'undefined') {
-						console.log(record.getData().xtypeTmp);
-						contentwindow.add({
-							xtype : record.getData().xtypeTmp
-						});
-					}
-				}
-			},
-			store : {
-				root : {
-					expanded : true,
-					children : [ {
-						text : 'detention',
-						leaf : true,
-						iconCls : 'x-fa fa-frown-o'
-					}, {
-						text : 'homework',
-						expanded : true,
-						iconCls : 'x-fa fa-folder',
-						children : [ {
-							text : 'book report',
-							leaf : true,
-							iconCls : 'x-fa fa-book'
-						}, {
-							text : 'algebra',
-							leaf : true,
-							iconCls : 'x-fa fa-graduation-cap'
-						} ]
-					}, {
-						text : 'buy lottery tickets',
-						leaf : true,
-						xtypeTmp : 'tablelist',
-						iconCls : 'x-fa fa-usd'
-					} ]
-				}
-			},
-		}, {
-			xtype : 'button',
-			text : 'click me',
-			handler : function(a, b) {
+		
+
+		rootVisible : true,
+		xtype : 'treepanel',
+		align: 'left',
+		title:'Navigation',
+		listeners : {
+			itemclick : function(thisObj, record, item, index, e, eOpts) {
 				var contentwindow = Ext.getCmp('contentwindow');
 				contentwindow.removeAll(true);
-				contentwindow.add({
-					html : '<h2>CLICKED MEEEEEEE</h2><p>huehuehueuhe</p>'
-				});
-			},
-		}, {
-			xtype : 'button',
-			text : 'arroy',
-			handler : function(a, b) {
-				var contentwindow = Ext.getCmp('contentwindow');
-				contentwindow.removeAll(true);
-				contentwindow.add({
-					xtype : 'button',
-					text : 'hey pirate!'
-				});
+				console.log(record);
+				if (typeof record.getData().xtypeTmp !== 'undefined') {
+					console.log(record.getData().xtypeTmp);
+					contentwindow.add({
+						xtype : record.getData().xtypeTmp
+					});
+				}
 			}
-		} ]
+		},
+		store : {
+			root : {
+				expanded : true,
+				children : [ {
+					text : 'detention',
+					leaf : true,
+					iconCls : 'x-fa fa-frown-o'
+				}, {
+					text : 'homework',
+					expanded : true,
+					iconCls : 'x-fa fa-folder',
+					children : [ {
+						text : 'book report',
+						leaf : true,
+						iconCls : 'x-fa fa-book'
+					}, {
+						text : 'algebra',
+						leaf : true,
+						iconCls : 'x-fa fa-graduation-cap'
+					} ]
+				}, {
+					text : 'buy lottery tickets',
+					leaf : true,
+					xtypeTmp : 'tablelist',
+					iconCls : 'x-fa fa-usd'
+				} ]
+			}
+		},
+	
+		
+		
 	}, {
 		title : 'Main Content',
 		id : 'contentwindow',
