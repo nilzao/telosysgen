@@ -12,7 +12,8 @@ Ext.define('TelosysGen.view.main.Index', {
 
 	requires : [ 'Ext.plugin.Viewport', 'Ext.window.MessageBox',
 			'TelosysGen.view.main.MainController',
-			'TelosysGen.view.main.MainModel', 'TelosysGen.view.main.List' ],
+			'TelosysGen.view.main.MainModel', 'TelosysGen.view.main.List',
+			'TelosysGen.store.Table' ],
 
 	controller : 'main',
 	viewModel : 'main',
@@ -78,16 +79,7 @@ Ext.define('TelosysGen.view.main.Index', {
 			title : 'Tables',
 			autoLoad : true,
 			store : {
-				fields : [ 'id', 'name' ],
-				storeId : 'storetabletest',
-				proxy : {
-					type : 'rest',
-					url : 'http://localhost:8080/table',
-					reader : {
-						type : 'json',
-						rootProperty : '_embedded.table'
-					}
-				}
+				type:'table'
 			},
 			columns : [ {
 				text : 'Id',
