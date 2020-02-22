@@ -187,6 +187,14 @@ public class TbTableJpaRecord implements Serializable {
 	public void setDatabase(TbDatabaseJpaRecord database) {
 		this.database = database;
 	}
+	
+	public Long getId() {
+		return this.idTable;
+	}
+	
+	public void setId(Long id) {
+		this.idTable = id;
+	}
 
 	// ----------------------------------------------------------------------
 	// toString METHOD
