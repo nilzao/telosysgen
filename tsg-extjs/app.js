@@ -8,9 +8,9 @@ Ext.application({
 
     extend: 'TelosysGen.Application',
 
-    requires: [
-        'TelosysGen.view.main.Main'
-    ],
+//    requires: [
+//        'TelosysGen.view.main.Main'
+//    ],
 
     // The name of the initial view to create. With the classic toolkit this class
     // will gain a "viewport" plugin if it does not extend Ext.Viewport. With the

@@ -8,7 +8,7 @@
  */
 Ext.define('TelosysGen.view.main.Index', {
 	extend : 'Ext.tab.Panel',
-	xtype : 'app-main',
+	xtype : 'app-index',
 
 	requires : [ 'Ext.plugin.Viewport', 'Ext.window.MessageBox',
 			'TelosysGen.view.main.MainController',
