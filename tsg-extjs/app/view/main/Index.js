@@ -13,7 +13,7 @@ Ext.define('TelosysGen.view.main.Index', {
 	requires : [ 'Ext.plugin.Viewport', 'Ext.window.MessageBox',
 			'TelosysGen.view.main.MainController',
 			'TelosysGen.view.main.MainModel', 'TelosysGen.view.main.List',
-			'TelosysGen.store.Table' ],
+			'TelosysGen.view.main.Table' ],
 
 	controller : 'main',
 	viewModel : 'main',
@@ -75,19 +75,7 @@ Ext.define('TelosysGen.view.main.Index', {
 		title : 'Settings',
 		iconCls : 'x-fa fa-cog',
 		items : [ {
-			xtype : 'grid',
-			title : 'Tables',
-			autoLoad : true,
-			store : {
-				type : 'table'
-			},
-			columns : [ {
-				text : 'Id',
-				dataIndex : 'id'
-			}, {
-				text : 'Name',
-				dataIndex : 'name'
-			} ]
+			xtype : 'tablelist'
 		} ]
 	}, {
 		title : 'Home',
