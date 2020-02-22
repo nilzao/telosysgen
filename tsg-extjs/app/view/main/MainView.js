@@ -31,56 +31,48 @@ Ext.define('TelosysGen.view.main.MainView', {
 		width : 200,
 		minWidth : 100,
 		maxWidth : 250,
-		
 
 		rootVisible : true,
 		xtype : 'treepanel',
-		align: 'left',
-		title:'Navigation',
+		align : 'left',
+		title : 'Navigation',
 		listeners : {
 			itemclick : function(thisObj, record, item, index, e, eOpts) {
 				var contentwindow = Ext.getCmp('contentwindow');
 				contentwindow.removeAll(true);
-				console.log(record);
 				if (typeof record.getData().xtypeTmp !== 'undefined') {
-					console.log(record.getData().xtypeTmp);
 					contentwindow.add({
 						xtype : record.getData().xtypeTmp
 					});
 				}
+			},
+			beforeitemmousedown : function(thisObj, record, item, index, e, eOpts) {
+				var proxy = Ext.getStore('proxytreemenu').getProxy();
+				proxy.setUrl('http://localhost:8080/treemenu');
+				if (typeof record.getData().treetype !== 'undefined') {
+					// proxy.setExtraParam("a", "b");
+					proxy.setUrl('http://localhost:8080/treemenu/' + record.getData().treetype);
+				}
 			}
 		},
 		store : {
+			storeId : 'proxytreemenu',
+			type : 'tree',
 			root : {
-				expanded : true,
-				children : [ {
-					text : 'detention',
-					leaf : true,
-					iconCls : 'x-fa fa-frown-o'
-				}, {
-					text : 'homework',
-					expanded : true,
-					iconCls : 'x-fa fa-folder',
-					children : [ {
-						text : 'book report',
-						leaf : true,
-						iconCls : 'x-fa fa-book'
-					}, {
-						text : 'algebra',
-						leaf : true,
-						iconCls : 'x-fa fa-graduation-cap'
-					} ]
-				}, {
-					text : 'buy lottery tickets',
-					leaf : true,
-					xtypeTmp : 'tablelist',
-					iconCls : 'x-fa fa-usd'
-				} ]
+				text : 'TelosysGen',
+				id : 'db',
+				// expanded : true
+				expanded : false
+			},
+			proxy : {
+				type : 'rest',
+				url : 'http://localhost:8080/treemenu',
+				reader : {
+					type : 'json',
+					rootProperty : 'table'
+				}
 			}
 		},
-	
-		
-		
 	}, {
 		title : 'Main Content',
 		id : 'contentwindow',
