@@ -13,6 +13,6 @@ Ext.define('TelosysGen.view.main.Column.js', {
 		dataIndex : 'id'
 	}, {
 		text : 'Name',
-		dataIndex : 'name'
+		dataIndex : 'dbName'
 	} ]
 });

@@ -196,18 +196,6 @@ public class TbTableJpaRecord implements Serializable {
 		this.idTable = id;
 	}
 
-	public String getText() {
-		return this.name;
-	}
-
-	public String getCurrentTreeType() {
-		return "table";
-	}
-
-	public String[] getChildTreeLists() {
-		return new String[] { "a", "b", "c" };
-	}
-
 	// ----------------------------------------------------------------------
 	// toString METHOD
 	// ----------------------------------------------------------------------

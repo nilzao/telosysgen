@@ -49,7 +49,7 @@ public class TbLinkJpaRecord implements Serializable {
 	private String foreignKeyName;
 
 	@Column(name = "ID", length = 100)
-	private String id;
+	private String idDb;
 
 	@Column(name = "INVERSE_SIDE_OF", length = 100)
 	private String inverseSideOf;
@@ -146,17 +146,18 @@ public class TbLinkJpaRecord implements Serializable {
 	}
 
 	// --- DATABASE MAPPING : ID ( VARCHAR )
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getId() {
-		return this.id;
-	}
 
 	// --- DATABASE MAPPING : INVERSE_SIDE_OF ( VARCHAR )
 	public void setInverseSideOf(String inverseSideOf) {
 		this.inverseSideOf = inverseSideOf;
+	}
+
+	public String getIdDb() {
+		return idDb;
+	}
+
+	public void setIdDb(String idDb) {
+		this.idDb = idDb;
 	}
 
 	public String getInverseSideOf() {
@@ -261,6 +262,14 @@ public class TbLinkJpaRecord implements Serializable {
 		this.table = table;
 	}
 
+	public void setId(Long id) {
+		this.idLink = id;
+	}
+
+	public Long getId() {
+		return this.idLink;
+	}
+
 	// ----------------------------------------------------------------------
 	// toString METHOD
 	// ----------------------------------------------------------------------
@@ -277,7 +286,7 @@ public class TbLinkJpaRecord implements Serializable {
 		sb.append("|");
 		sb.append(foreignKeyName);
 		sb.append("|");
-		sb.append(id);
+		sb.append(idDb);
 		sb.append("|");
 		sb.append(inverseSideOf);
 		sb.append("|");

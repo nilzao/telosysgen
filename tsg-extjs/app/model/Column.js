@@ -3,7 +3,7 @@ Ext.define('TelosysGen.model.Column', {
     alias : 'model.column',
     fields: [
         { name: 'id', type: 'int' },
-        { name: 'name', type: 'string' }
+        { name: 'idDb', type: 'string' }
 
     ]
 });

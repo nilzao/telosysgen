@@ -249,6 +249,14 @@ public class TbColumnJpaRecord implements Serializable {
 		this.table = table;
 	}
 
+	public void setId(Long id) {
+		this.idColumn = id;
+	}
+
+	public Long getId() {
+		return this.idColumn;
+	}
+
 	// ----------------------------------------------------------------------
 	// toString METHOD
 	// ----------------------------------------------------------------------

@@ -13,6 +13,6 @@ Ext.define('TelosysGen.view.main.Link', {
 		dataIndex : 'id'
 	}, {
 		text : 'Name',
-		dataIndex : 'name'
+		dataIndex : 'idDb'
 	} ]
 });

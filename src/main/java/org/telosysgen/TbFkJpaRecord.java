@@ -93,6 +93,14 @@ public class TbFkJpaRecord implements Serializable {
 		this.table = table;
 	}
 
+	public void setId(Long id) {
+		this.idFk = id;
+	}
+
+	public Long getId() {
+		return this.idFk;
+	}
+
 	// ----------------------------------------------------------------------
 	// toString METHOD
 	// ----------------------------------------------------------------------
