@@ -115,6 +115,18 @@ public class TbDatabaseJpaRecord implements Serializable {
 		this.tableList = tableList;
 	}
 
+	public Long getId() {
+		return this.idDatabase;
+	}
+
+	public String getText() {
+		return this.name;
+	}
+
+	public String getCurrentTreeType() {
+		return "database";
+	}
+
 	// ----------------------------------------------------------------------
 	// toString METHOD
 	// ----------------------------------------------------------------------

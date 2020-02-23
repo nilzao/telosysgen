@@ -187,13 +187,25 @@ public class TbTableJpaRecord implements Serializable {
 	public void setDatabase(TbDatabaseJpaRecord database) {
 		this.database = database;
 	}
-	
+
 	public Long getId() {
 		return this.idTable;
 	}
-	
+
 	public void setId(Long id) {
 		this.idTable = id;
+	}
+
+	public String getText() {
+		return this.name;
+	}
+
+	public String getCurrentTreeType() {
+		return "table";
+	}
+
+	public String[] getChildTreeLists() {
+		return new String[] { "a", "b", "c" };
 	}
 
 	// ----------------------------------------------------------------------

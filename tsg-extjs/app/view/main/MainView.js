@@ -21,7 +21,7 @@ Ext.define('TelosysGen.view.main.MainView', {
 	},
 
 	items : [ {
-		title : 'Navigation',
+		title : 'TelosysGen',
 		region : 'west',
 		id : 'navigationtab',
 		floatable : false,
@@ -38,38 +38,53 @@ Ext.define('TelosysGen.view.main.MainView', {
 		title : 'Navigation',
 		listeners : {
 			itemclick : function(thisObj, record, item, index, e, eOpts) {
-				var contentwindow = Ext.getCmp('contentwindow');
-				contentwindow.removeAll(true);
-				if (typeof record.getData().xtypeTmp !== 'undefined') {
-					contentwindow.add({
-						xtype : record.getData().xtypeTmp
-					});
-				}
+				// var contentwindow = Ext.getCmp('contentwindow');
+				// contentwindow.removeAll(true);
+				// if (typeof record.getData().xtypeTmp !== 'undefined') {
+				// contentwindow.add({
+				// xtype : record.getData().xtypeTmp
+				// });
+				// }
 			},
 			beforeitemmousedown : function(thisObj, record, item, index, e, eOpts) {
-				var proxy = Ext.getStore('proxytreemenu').getProxy();
-				proxy.setUrl('http://localhost:8080/treemenu');
-				if (typeof record.getData().treetype !== 'undefined') {
-					// proxy.setExtraParam("a", "b");
-					proxy.setUrl('http://localhost:8080/treemenu/' + record.getData().treetype);
+				var currentTreeType = record.getData().currentTreeType;
+				if (typeof currentTreeType !== 'undefined') {
+					var proxy = Ext.getStore('proxytreemenu').getProxy();
+					proxy.setUrl(proxy.baseUrl);
+					// var id = record.getData().itemId;
+					var id = 1;
+					proxy.getReader().setRootProperty('_embedded.table')
+					proxy.setUrl(proxy.baseUrl + currentTreeType + "/" + id + "/tableList");
 				}
 			}
 		},
 		store : {
 			storeId : 'proxytreemenu',
 			type : 'tree',
+			listeners : {
+				load : function(thisObj, records, successful, operation, node, eOpts) {
+					if (records != null) {
+						for (i = 0; i < records.length; i++) {
+							records[i].setId(records[i].getData().id + records[i].getData().currentTreeType);
+						}
+					}
+				}
+			},
 			root : {
 				text : 'TelosysGen',
-				id : 'db',
+				// id : 'database',
 				// expanded : true
 				expanded : false
 			},
 			proxy : {
 				type : 'rest',
-				url : 'http://localhost:8080/treemenu',
+				url : 'http://localhost:8080/database',
+				baseUrl : 'http://localhost:8080/',
+				appendId : false,
+				// idParam: 'idView',
 				reader : {
 					type : 'json',
-					rootProperty : 'table'
+					rootProperty : '_embedded.database'
 				}
 			}
 		},
