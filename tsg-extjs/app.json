@@ -222,17 +222,7 @@
         ]
     },
 
-    /**
-     * Settings specific to modern toolkit builds.
-     */
-    "modern": {
-        "js": [
-            // Remove this entry to individually load sources from the framework.
-            {
-                "path": "${framework.dir}/build/ext-modern-all-debug.js"
-            }
-        ]
-    },
+   
 
     /**
      * List of all CSS assets in the right inclusion order.
@@ -521,17 +511,6 @@
                 "generated": {
                     "var": "classic/sass/save.scss",
                     "src": "classic/sass/save"
-                }
-            }
-        },
-
-        "modern": {
-            "toolkit": "modern",
-            "theme": "theme-material",
-            "sass": {
-                "generated": {
-                    "var": "modern/sass/save.scss",
-                    "src": "modern/sass/save"
                 }
             }
         }
