@@ -23,7 +23,6 @@ Ext.define('TelosysGen.view.main.MainView', {
 	items : [ {
 		title : 'TelosysGen',
 		region : 'west',
-		id : 'navigationtab',
 		floatable : false,
 		collapsible : true,
 		// collapseMode : 'mini',
@@ -34,57 +33,58 @@ Ext.define('TelosysGen.view.main.MainView', {
 
 		rootVisible : true,
 		xtype : 'treepanel',
-		align : 'left',
-		title : 'Navigation',
 		listeners : {
 			itemclick : function(thisObj, record, item, index, e, eOpts) {
-				// var contentwindow = Ext.getCmp('contentwindow');
-				// contentwindow.removeAll(true);
-				// if (typeof record.getData().xtypeTmp !== 'undefined') {
-				// contentwindow.add({
-				// xtype : record.getData().xtypeTmp
-				// });
-				// }
-			},
-			beforeitemmousedown : function(thisObj, record, item, index, e, eOpts) {
-				var currentTreeType = record.getData().currentTreeType;
-				if (typeof currentTreeType !== 'undefined') {
-					var proxy = Ext.getStore('proxytreemenu').getProxy();
-					proxy.setUrl(proxy.baseUrl);
-					// var id = record.getData().itemId;
-					var id = 1;
-					proxy.getReader().setRootProperty('_embedded.table')
-					proxy.setUrl(proxy.baseUrl + currentTreeType + "/" + id + "/tableList");
+				var contentwindow = Ext.getCmp('contentwindow');
+				contentwindow.removeAll(true);
+				if (typeof record.getData().xtypeTmp !== 'undefined') {
+					contentwindow.add({
+						xtype : record.getData().xtypeTmp
+					});
 				}
 			}
+		// , beforeitemmousedown : function(thisObj, record, item, index, e, eOpts)
+		// {
+		// var currentTreeType = record.getData().currentTreeType;
+		// if (typeof currentTreeType !== 'undefined') {
+		// var proxy = Ext.getStore('proxytreemenu').getProxy();
+		// proxy.setUrl(proxy.baseUrl);
+		// // var id = record.getData().itemId;
+		// var id = 1;
+		// proxy.getReader().setRootProperty('_embedded.table')
+		// proxy.setUrl(proxy.baseUrl + currentTreeType + "/" + id + "/tableList");
+		// }
+		// }
 		},
 		store : {
 			storeId : 'proxytreemenu',
 			type : 'tree',
-			listeners : {
-				load : function(thisObj, records, successful, operation, node, eOpts) {
-					if (records != null) {
-						for (i = 0; i < records.length; i++) {
-							records[i].setId(records[i].getData().id + records[i].getData().currentTreeType);
-						}
-					}
-				}
-			},
+			// listeners : {
+			// load : function(thisObj, records, successful, operation, node, eOpts) {
+			// if (records != null) {
+			// for (i = 0; i < records.length; i++) {
+			// records[i].setId(records[i].getData().id +
+			// records[i].getData().currentTreeType);
+			// }
+			// }
+			// }
+			// },
 			root : {
 				text : 'TelosysGen',
-				// id : 'database',
-				// expanded : true
-				expanded : false
+				id : 'database',
+				expanded : true
+			// expanded : false
 			},
 			proxy : {
 				type : 'rest',
-				url : 'http://localhost:8080/database',
-				baseUrl : 'http://localhost:8080/',
-				appendId : false,
+				url : 'http://localhost:8080/treemenu',
+				// url : 'http://localhost:8888/go.json',
+				// baseUrl : 'http://localhost:8080/',
+				// appendId : false,
 				// idParam: 'idView',
 				reader : {
 					type : 'json',
-					rootProperty : '_embedded.database'
+					rootProperty : 'treemenu'
 				}
 			}
 		},

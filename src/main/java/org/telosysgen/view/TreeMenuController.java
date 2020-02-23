@@ -12,30 +12,33 @@ public class TreeMenuController {
 	@GetMapping("/{id}")
 	public String treeMenu(@PathVariable String id) {
 		StringBuilder stringBuilder = new StringBuilder();
-		if ("db".equals(id)) {
+		if ("database".equals(id)) {
 			stringBuilder.append("{\n");
-			stringBuilder.append("	\"table\": [\n");
+			stringBuilder.append("	\"treemenu\": [\n");
 			stringBuilder.append("		{\n");
-			stringBuilder.append("			\"text\": \"TB_COLUMN\",\n");
-			stringBuilder.append("			\"id\": 1,\n"
-					+ "\"xtypeTmp\": \"tablelist\", "
-					+ "\"treetype\": \"testtype\" ");
+			stringBuilder.append("			\"text\": \"databases\",\n");
+			stringBuilder.append("			\"id\": 1,\n");
+			stringBuilder.append("			\"xtypeTmp\": \"databaselist\"\n");
 			stringBuilder.append("		},\n");
 			stringBuilder.append("		{\n");
-			stringBuilder.append("			\"text\": \"TB_DATABASE\",\n");
-			stringBuilder.append("			\"id\": 2\n");
+			stringBuilder.append("			\"text\": \"tables\",\n");
+			stringBuilder.append("			\"id\": 2,\n");
+			stringBuilder.append("			\"xtypeTmp\": \"tablelist\"\n");
 			stringBuilder.append("		},\n");
 			stringBuilder.append("		{\n");
-			stringBuilder.append("			\"text\": \"TB_FK\",\n");
-			stringBuilder.append("			\"id\": 3\n");
+			stringBuilder.append("			\"text\": \"columns\",\n");
+			stringBuilder.append("			\"id\": 3,\n");
+			stringBuilder.append("			\"xtypeTmp\": \"columnlist\"\n");
 			stringBuilder.append("		},\n");
 			stringBuilder.append("		{\n");
-			stringBuilder.append("			\"text\": \"TB_LINK\",\n");
-			stringBuilder.append("			\"id\": 4\n");
+			stringBuilder.append("			\"text\": \"fks\",\n");
+			stringBuilder.append("			\"id\": 4,\n");
+			stringBuilder.append("			\"xtypeTmp\": \"fklist\"\n");
 			stringBuilder.append("		},\n");
 			stringBuilder.append("		{\n");
-			stringBuilder.append("			\"text\": \"TB_TABLE\",\n");
-			stringBuilder.append("			\"id\": 5\n");
+			stringBuilder.append("			\"text\": \"links\",\n");
+			stringBuilder.append("			\"id\": 5,\n");
+			stringBuilder.append("			\"xtypeTmp\": \"linklist\"\n");
 			stringBuilder.append("		}\n");
 			stringBuilder.append("	]\n");
 			stringBuilder.append("}\n");
