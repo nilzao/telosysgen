@@ -1,6 +1,6 @@
-Ext.define('TelosysGen.model.Table', {
+Ext.define('TelosysGen.model.Fk', {
     extend: 'Ext.data.Model',
-    alias : 'model.table',
+    alias : 'model.fk',
     fields: [
         { name: 'id', type: 'int' },
         { name: 'name', type: 'string' }
