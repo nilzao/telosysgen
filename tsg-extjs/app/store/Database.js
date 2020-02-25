@@ -1,6 +1,7 @@
 Ext.define('TelosysGen.store.Database', {
 	extend : 'Ext.data.Store',
 	alias : 'store.database',
+	storeId : 'store.database',
 	model : 'TelosysGen.model.Database',
 	proxy : {
 		type : 'rest',
