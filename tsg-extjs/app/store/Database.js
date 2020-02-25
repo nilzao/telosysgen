@@ -9,6 +9,10 @@ Ext.define('TelosysGen.store.Database', {
 		reader : {
 			type : 'json',
 			rootProperty : '_embedded.database'
+		},
+		writer : {
+			type : 'json',
+			writeAllFields : true
 		}
 	}
 });

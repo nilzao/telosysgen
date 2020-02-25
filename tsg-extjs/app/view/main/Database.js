@@ -33,6 +33,5 @@ Ext.define('TelosysGen.view.main.Database', {
 	plugins : {
 		ptype : 'rowediting',
 		clicksToEdit : 2
-	},
-	selModel : 'rowmodel'
+	}
 });
