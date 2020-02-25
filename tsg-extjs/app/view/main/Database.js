@@ -1,7 +1,7 @@
 Ext.define('TelosysGen.view.main.Database', {
 	extend : 'Ext.grid.Panel',
 	xtype : 'databaselist',
-	requires : [ 'TelosysGen.store.Database' ],
+	requires : [ 'TelosysGen.store.Database', 'TelosysGen.view.grid.tbar.GridTbar' ],
 	minHeight : 200,
 	title : 'Databases',
 	autoLoad : true,
@@ -9,13 +9,7 @@ Ext.define('TelosysGen.view.main.Database', {
 		type : 'database'
 	},
 	tbar : {
-		items : [ {
-			xtype : 'button',
-			text : 'Sync',
-			handler : function(thisObj, event) {
-				thisObj.findParentByType("grid").getStore().sync();
-			}
-		} ]
+		xtype : 'gridtbar'
 	},
 	columns : [ {
 		text : 'Id',
