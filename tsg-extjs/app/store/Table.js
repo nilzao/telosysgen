@@ -8,6 +8,10 @@ Ext.define('TelosysGen.store.Table', {
 		reader : {
 			type : 'json',
 			rootProperty : '_embedded.table'
+		},
+		writer : {
+			type : 'json',
+			writeAllFields : true
 		}
 	}
 });
