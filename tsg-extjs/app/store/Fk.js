@@ -8,6 +8,10 @@ Ext.define('TelosysGen.store.Fk', {
 		reader : {
 			type : 'json',
 			rootProperty : '_embedded.fk'
+		},
+		writer : {
+			type : 'json',
+			writeAllFields : true
 		}
 	}
 });
