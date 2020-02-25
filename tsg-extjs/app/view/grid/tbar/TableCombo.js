@@ -11,8 +11,9 @@ Ext.define('TelosysGen.view.grid.tbar.TableCombo', {
 	listeners : {
 		change : function(thisObj, newValue, oldValue, eOpts) {
 			var gridStore = thisObj.findParentByType("grid").getStore();
+			gridStore.getProxy().setUrl('http://localhost:8080/column/search/findByTable_IdTable');
 			gridStore.getProxy().setExtraParams({
-				table : newValue
+				tableId : newValue
 			});
 			gridStore.load();
 		}
