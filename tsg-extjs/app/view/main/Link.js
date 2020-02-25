@@ -1,7 +1,7 @@
 Ext.define('TelosysGen.view.main.Link', {
 	extend : 'Ext.grid.Panel',
 	xtype : 'linklist',
-	requires : [ 'TelosysGen.store.Link' ],
+	requires : [ 'TelosysGen.store.Link', 'TelosysGen.view.grid.tbar.GridTbar' ],
 	minHeight : 200,
 	title : 'Links',
 	autoLoad : true,

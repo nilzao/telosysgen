@@ -1,7 +1,7 @@
-Ext.define('TelosysGen.view.main.Column.js', {
+Ext.define('TelosysGen.view.main.Column', {
 	extend : 'Ext.grid.Panel',
 	xtype : 'columnlist',
-	requires : [ 'TelosysGen.store.Column' ],
+	requires : [ 'TelosysGen.store.Column', 'TelosysGen.view.grid.tbar.GridTbar', 'TelosysGen.view.grid.tbar.TableCombo' ],
 
 	title : 'Column',
 	autoLoad : true,
@@ -9,7 +9,11 @@ Ext.define('TelosysGen.view.main.Column.js', {
 		type : 'column'
 	},
 	tbar : {
-		xtype : 'gridtbar'
+		items : [ {
+			xtype : 'gridtbar'
+		}, {
+			xtype : 'tbar.table.combo'
+		} ]
 	},
 	columns : [ {
 		text : 'Id',

@@ -10,7 +10,7 @@ Ext.define('TelosysGen.view.main.MainView', {
 	extend : 'Ext.container.Viewport',
 	xtype : 'app-main-view',
 
-	requires : [ 'TelosysGen.view.main.Table' ],
+	requires : [ 'TelosysGen.view.main.Database', 'TelosysGen.view.main.Table', 'TelosysGen.view.main.Column', 'TelosysGen.view.main.Fk', 'TelosysGen.view.main.Link' ],
 	layout : 'border',
 
 	bodyBorder : false,
