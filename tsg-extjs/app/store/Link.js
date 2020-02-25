@@ -8,6 +8,10 @@ Ext.define('TelosysGen.store.Link', {
 		reader : {
 			type : 'json',
 			rootProperty : '_embedded.link'
+		},
+		writer : {
+			type : 'json',
+			writeAllFields : true
 		}
 	}
 });
