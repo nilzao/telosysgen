@@ -27,12 +27,15 @@ Ext.define('TelosysGen.view.main.MainView', {
 		collapsible : true,
 		// collapseMode : 'mini',
 		margin : '5 0 0 0',
-		width : 200,
+		width : 210,
 		minWidth : 100,
 		maxWidth : 250,
 
 		rootVisible : true,
+		columnLines: true,
+		rowLines: true,
 		xtype : 'treepanel',
+		useArrows: true,
 		listeners : {
 			itemclick : function(thisObj, record, item, index, e, eOpts) {
 				var contentwindow = Ext.getCmp('contentwindow');
@@ -45,21 +48,38 @@ Ext.define('TelosysGen.view.main.MainView', {
 			}
 		},
 		store : {
-			storeId : 'proxytreemenu',
-			type : 'tree',
 			root : {
-				text : 'TelosysGen',
-				id : 'database',
-				expanded : true
-			// expanded : false
-			},
-			proxy : {
-				type : 'rest',
-				url : TelosysGen.Vars.baseStoreProxyUrl + '/treemenu',
-				reader : {
-					type : 'json',
-					rootProperty : 'treemenu'
-				}
+				expanded : true,
+				expandable : false,
+				text : 'database',
+				xtypeTmp : 'databaselist',
+				children : [ {
+					expanded : true,
+					expandable : false,
+					text : 'tables',
+					xtypeTmp : 'tablelist',
+					children : [ {
+						text : 'columns',
+						xtypeTmp : 'columnlist',
+						leaf : true
+					}, {
+						text : 'fks',
+						expanded : true,
+						xtypeTmp : 'fklist',
+						children : [ {
+							text : 'fkCols',
+							leaf : true
+						} ]
+					}, {
+						text : 'links',
+						xtypeTmp : 'linklist',
+						expanded : true,
+						children : [ {
+							text : 'linkJoinCols',
+							leaf : true
+						} ]
+					} ]
+				} ]
 			}
 		},
 	}, {

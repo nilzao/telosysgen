@@ -34,3 +34,6 @@ telosys/
 !/tsg-extjs/app.js
 !/tsg-extjs/app.json
 
+
+# h2 tracedb
+*.trace.db
