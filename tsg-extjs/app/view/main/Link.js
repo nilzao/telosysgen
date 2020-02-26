@@ -9,7 +9,11 @@ Ext.define('TelosysGen.view.main.Link', {
 		type : 'link'
 	},
 	tbar : {
-		xtype : 'gridtbar'
+		items : [ {
+			xtype : 'gridtbar'
+		}, {
+			xtype : 'tbar.table.combo'
+		} ]
 	},
 	columns : [ {
 		text : 'Id',

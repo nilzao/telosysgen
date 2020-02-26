@@ -6,6 +6,7 @@ Ext.define('TelosysGen.store.Link', {
 	proxy : {
 		type : 'rest',
 		url : 'http://localhost:8080/link',
+		baseUrl : '/link',
 		reader : {
 			type : 'json',
 			rootProperty : '_embedded.link'

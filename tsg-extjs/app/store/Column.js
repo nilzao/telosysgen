@@ -6,6 +6,7 @@ Ext.define('TelosysGen.store.Column', {
 	proxy : {
 		type : 'rest',
 		url : 'http://localhost:8080/column',
+		baseUrl : '/column',
 		reader : {
 			type : 'json',
 			rootProperty : '_embedded.column'

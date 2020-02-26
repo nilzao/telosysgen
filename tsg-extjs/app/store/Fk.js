@@ -6,6 +6,7 @@ Ext.define('TelosysGen.store.Fk', {
 	proxy : {
 		type : 'rest',
 		url : 'http://localhost:8080/fk',
+		baseUrl : '/fk',
 		reader : {
 			type : 'json',
 			rootProperty : '_embedded.fk'
