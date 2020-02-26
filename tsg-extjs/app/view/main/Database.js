@@ -1,5 +1,6 @@
 Ext.define('TelosysGen.view.main.Database', {
 	extend : 'Ext.grid.Panel',
+	requires : [ 'Ext.form.field.Date' ],
 	xtype : 'databaselist',
 	requires : [ 'TelosysGen.store.Database', 'TelosysGen.view.grid.tbar.GridTbar' ],
 	minHeight : 200,

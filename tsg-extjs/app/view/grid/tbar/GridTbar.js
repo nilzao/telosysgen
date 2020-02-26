@@ -1,5 +1,6 @@
 Ext.define('TelosysGen.view.grid.tbar.GridTbar', {
 	extend : 'Ext.toolbar.Toolbar',
+	requires : [ 'Ext.form.Label' ],
 	xtype : 'gridtbar',
 	setGridStoreEvents : function() {
 		this.getGridStore().on({
