@@ -7,4 +7,8 @@ https://www.telosys.org/
 
 loading dbrep file:
 
-curl -F "file=@h2test.dbrep" http://localhost:8080/upload
+    curl -F "file=@h2test.dbrep" http://localhost:8080/upload
+
+chromium/chrome without cors protection
+
+    chromium  --disable-web-security --user-data-dir="$HOME/.dev-cors/" &
