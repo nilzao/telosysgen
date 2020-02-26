@@ -8,6 +8,7 @@ import org.telosysgen.TbColumnJpaRecord;
 import org.telosysgen.TbDatabaseJpaRecord;
 import org.telosysgen.TbFkColJpaRecord;
 import org.telosysgen.TbFkJpaRecord;
+import org.telosysgen.TbJoinColumnJpaRecord;
 import org.telosysgen.TbLinkJpaRecord;
 import org.telosysgen.TbTableJpaRecord;
 import org.telosysgen.jaxb.repo.Root;
@@ -17,6 +18,8 @@ import org.telosysgen.jaxb.repo.Root.TableList.Table.Column;
 import org.telosysgen.jaxb.repo.Root.TableList.Table.Fk;
 import org.telosysgen.jaxb.repo.Root.TableList.Table.Fk.Fkcol;
 import org.telosysgen.jaxb.repo.Root.TableList.Table.Link;
+import org.telosysgen.jaxb.repo.Root.TableList.Table.Link.JoinColumns;
+import org.telosysgen.jaxb.repo.Root.TableList.Table.Link.JoinColumns.JoinColumn;
 
 public class RootToTbDatabase {
 
@@ -62,9 +65,20 @@ public class RootToTbDatabase {
 			List<Link> linkList = table.getLink();
 			for (Link link : linkList) {
 				TbLinkJpaRecord tbLinkJpaRecord = new TbLinkJpaRecord();
+				tbLinkJpaRecord.setJoinColumList(new ArrayList<>());
 				BeanUtils.copyProperties(link, tbLinkJpaRecord);
 				tbLinkJpaRecord.setIdDb(link.getId());
 				tbLinkJpaRecord.setTable(tbTableJpaRecord);
+				JoinColumns joinColumns = link.getJoinColumns();
+				if (joinColumns != null) {
+					List<JoinColumn> joinColumnList = joinColumns.getJoinColumn();
+					for (JoinColumn joinColumn : joinColumnList) {
+						TbJoinColumnJpaRecord tbJoinColumnJpaRecord = new TbJoinColumnJpaRecord();
+						BeanUtils.copyProperties(joinColumn, tbJoinColumnJpaRecord);
+						tbJoinColumnJpaRecord.setLink(tbLinkJpaRecord);
+						tbLinkJpaRecord.getJoinColumList().add(tbJoinColumnJpaRecord);
+					}
+				}
 				tbTableJpaRecord.getLinkList().add(tbLinkJpaRecord);
 			}
 		}
