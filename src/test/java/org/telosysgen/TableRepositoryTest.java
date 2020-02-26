@@ -2,6 +2,7 @@ package org.telosysgen;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.Before;
@@ -36,9 +37,9 @@ public class TableRepositoryTest {
 
 	@Test
 	public void find() {
-		Optional<TbTableJpaRecord> findById = tableRepository.findById(1l);
-		assertEquals(findById.get().getName(), "table test");
-		assertEquals(findById.get().getDatabase().getDatabaseName(), "arroy");
+		TbTableJpaRecord tbTableJpaRecord = tableRepository.findByName("table test", null).get(0);
+		assertEquals(tbTableJpaRecord.getName(), "table test");
+		assertEquals(tbTableJpaRecord.getDatabase().getDatabaseName(), "arroy");
 	}
 
 }
