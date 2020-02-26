@@ -6,6 +6,7 @@
 package org.telosysgen;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -87,6 +88,10 @@ public class TbLinkJpaRecord implements Serializable {
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
 	@JoinColumn(name = "ID_TABLE", referencedColumnName = "ID_TABLE", foreignKey = @ForeignKey(name = "FK_LINK_TABLE"))
 	private TbTableJpaRecord table;
+
+	@OneToMany(mappedBy = "link", fetch = FetchType.LAZY, targetEntity = TbJoinColumnJpaRecord.class, cascade = {
+			CascadeType.MERGE, CascadeType.PERSIST })
+	private List<TbJoinColumnJpaRecord> joinColumList;
 
 	// ----------------------------------------------------------------------
 	// CONSTRUCTOR(S)
@@ -268,6 +273,14 @@ public class TbLinkJpaRecord implements Serializable {
 
 	public Long getId() {
 		return this.idLink;
+	}
+
+	public List<TbJoinColumnJpaRecord> getJoinColumList() {
+		return joinColumList;
+	}
+
+	public void setJoinColumList(List<TbJoinColumnJpaRecord> joinColumList) {
+		this.joinColumList = joinColumList;
 	}
 
 	// ----------------------------------------------------------------------
