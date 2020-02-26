@@ -6,6 +6,7 @@
 package org.telosysgen;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -45,6 +46,10 @@ public class TbFkJpaRecord implements Serializable {
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
 	@JoinColumn(name = "ID_TABLE", referencedColumnName = "ID_TABLE", foreignKey = @ForeignKey(name = "FK_FK_TABLE"))
 	private TbTableJpaRecord table;
+
+	@OneToMany(mappedBy = "fk", fetch = FetchType.LAZY, targetEntity = TbFkColJpaRecord.class, cascade = {
+			CascadeType.MERGE, CascadeType.PERSIST })
+	private List<TbFkColJpaRecord> fkColList;
 
 	// ----------------------------------------------------------------------
 	// CONSTRUCTOR(S)
@@ -99,6 +104,14 @@ public class TbFkJpaRecord implements Serializable {
 
 	public Long getId() {
 		return this.idFk;
+	}
+
+	public List<TbFkColJpaRecord> getFkColList() {
+		return fkColList;
+	}
+
+	public void setFkColList(List<TbFkColJpaRecord> fkColList) {
+		this.fkColList = fkColList;
 	}
 
 	// ----------------------------------------------------------------------

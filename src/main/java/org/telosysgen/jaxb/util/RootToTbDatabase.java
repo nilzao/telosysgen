@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.BeanUtils;
 import org.telosysgen.TbColumnJpaRecord;
 import org.telosysgen.TbDatabaseJpaRecord;
+import org.telosysgen.TbFkColJpaRecord;
 import org.telosysgen.TbFkJpaRecord;
 import org.telosysgen.TbLinkJpaRecord;
 import org.telosysgen.TbTableJpaRecord;
@@ -14,6 +15,7 @@ import org.telosysgen.jaxb.repo.Root.TableList;
 import org.telosysgen.jaxb.repo.Root.TableList.Table;
 import org.telosysgen.jaxb.repo.Root.TableList.Table.Column;
 import org.telosysgen.jaxb.repo.Root.TableList.Table.Fk;
+import org.telosysgen.jaxb.repo.Root.TableList.Table.Fk.Fkcol;
 import org.telosysgen.jaxb.repo.Root.TableList.Table.Link;
 
 public class RootToTbDatabase {
@@ -46,6 +48,14 @@ public class RootToTbDatabase {
 			for (Fk fk : fkList) {
 				TbFkJpaRecord tbFkJpaRecord = new TbFkJpaRecord();
 				BeanUtils.copyProperties(fk, tbFkJpaRecord);
+				List<Fkcol> fkcolList = fk.getFkcol();
+				tbFkJpaRecord.setFkColList(new ArrayList<>());
+				for (Fkcol fkcol : fkcolList) {
+					TbFkColJpaRecord tbFkColJpaRecord = new TbFkColJpaRecord();
+					BeanUtils.copyProperties(fkcol, tbFkColJpaRecord);
+					tbFkColJpaRecord.setFk(tbFkJpaRecord);
+					tbFkJpaRecord.getFkColList().add(tbFkColJpaRecord);
+				}
 				tbFkJpaRecord.setTable(tbTableJpaRecord);
 				tbTableJpaRecord.getFkList().add(tbFkJpaRecord);
 			}
@@ -53,6 +63,7 @@ public class RootToTbDatabase {
 			for (Link link : linkList) {
 				TbLinkJpaRecord tbLinkJpaRecord = new TbLinkJpaRecord();
 				BeanUtils.copyProperties(link, tbLinkJpaRecord);
+				tbLinkJpaRecord.setIdDb(link.getId());
 				tbLinkJpaRecord.setTable(tbTableJpaRecord);
 				tbTableJpaRecord.getLinkList().add(tbLinkJpaRecord);
 			}
