@@ -5,7 +5,7 @@ Ext.define('TelosysGen.store.Table', {
 	pageSize : 20,
 	proxy : {
 		type : 'rest',
-		url : 'http://localhost:8080/table',
+		url : TelosysGen.Vars.baseStoreProxyUrl + '/table',
 		reader : {
 			type : 'json',
 			rootProperty : '_embedded.table'

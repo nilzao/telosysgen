@@ -13,7 +13,7 @@ Ext.define('TelosysGen.view.grid.tbar.TableCombo', {
 		select : function(combo, record, eOpts) {
 			var gridStore = combo.findParentByType("grid").getStore();
 			console.log(combo.findParentByType("grid"));
-			gridStore.getProxy().setUrl('http://localhost:8080' + gridStore.getProxy().baseUrl + '/search/findByTable_IdTable');
+			gridStore.getProxy().setUrl(TelosysGen.Vars.baseStoreProxyUrl + '' + gridStore.getProxy().baseUrl + '/search/findByTable_IdTable');
 			gridStore.getProxy().setExtraParams({
 				tableId : record.getData().id
 			});
@@ -21,9 +21,9 @@ Ext.define('TelosysGen.view.grid.tbar.TableCombo', {
 		},
 		beforequery : function(queryPlan, eOpts) {
 			if (queryPlan.query == "") {
-				queryPlan.combo.getStore().getProxy().setUrl('http://localhost:8080/table');
+				queryPlan.combo.getStore().getProxy().setUrl(TelosysGen.Vars.baseStoreProxyUrl + '/table');
 			} else {
-				queryPlan.combo.getStore().getProxy().setUrl('http://localhost:8080/table/search/findByName');
+				queryPlan.combo.getStore().getProxy().setUrl(TelosysGen.Vars.baseStoreProxyUrl + '/table/search/findByName');
 			}
 		}
 	}

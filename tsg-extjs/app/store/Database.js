@@ -5,7 +5,7 @@ Ext.define('TelosysGen.store.Database', {
 	pageSize : 20,
 	proxy : {
 		type : 'rest',
-		url : 'http://localhost:8080/database',
+		url : TelosysGen.Vars.baseStoreProxyUrl + '/database',
 		reader : {
 			type : 'json',
 			rootProperty : '_embedded.database'

@@ -22,7 +22,7 @@ Ext.define('TelosysGen.view.main.Table', {
 				var toolbar = thisObj.findParentByType('toolbar')
 				var tableNameSearchField = toolbar.getComponent('tableNameSearchField').getValue();
 				var gridStore = thisObj.findParentByType("grid").getStore();
-				gridStore.getProxy().setUrl('http://localhost:8080/table/search/findByName');
+				gridStore.getProxy().setUrl(TelosysGen.Vars.baseStoreProxyUrl + '/table/search/findByName');
 				gridStore.getProxy().setExtraParams({
 					name : tableNameSearchField
 				});
