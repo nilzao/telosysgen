@@ -9,7 +9,26 @@ Ext.define('TelosysGen.view.main.Table', {
 		type : 'table'
 	},
 	tbar : {
-		xtype : 'gridtbar'
+		items : [ {
+			xtype : 'gridtbar'
+		}, {
+			itemId : 'tableNameSearchField',
+			xtype : 'textfield',
+			emptyText : 'table name%'
+		}, {
+			xtype : 'button',
+			text : 'Filter',
+			handler : function(thisObj, eOpts) {
+				var toolbar = thisObj.findParentByType('toolbar')
+				var tableNameSearchField = toolbar.getComponent('tableNameSearchField').getValue();
+				var gridStore = thisObj.findParentByType("grid").getStore();
+				gridStore.getProxy().setUrl('http://localhost:8080/table/search/findByName');
+				gridStore.getProxy().setExtraParams({
+					name : tableNameSearchField
+				});
+				gridStore.load();
+			}
+		} ]
 	},
 	columns : [ {
 		text : 'Id',
