@@ -81,6 +81,12 @@ public class TbColumnJpaRecord implements Serializable {
 	@Column(name = "SELECTED", length = 100)
 	private String selected;
 
+	@Column(name = "DB_AUTOINCREMENTED", length = 100)
+	private String dbAutoIncremented;
+
+	@Column(name = "MAX_LENGTH", length = 100)
+	private String maxLength;
+
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
 	@JoinColumn(name = "ID_TABLE", referencedColumnName = "ID_TABLE", foreignKey = @ForeignKey(name = "FK_COLUMN_TABLE"))
 	private TbTableJpaRecord table;
@@ -255,6 +261,22 @@ public class TbColumnJpaRecord implements Serializable {
 
 	public Long getId() {
 		return this.idColumn;
+	}
+
+	public String getDbAutoIncremented() {
+		return dbAutoIncremented;
+	}
+
+	public void setDbAutoIncremented(String dbAutoIncremented) {
+		this.dbAutoIncremented = dbAutoIncremented;
+	}
+
+	public String getMaxLength() {
+		return maxLength;
+	}
+
+	public void setMaxLength(String maxLength) {
+		this.maxLength = maxLength;
 	}
 
 	// ----------------------------------------------------------------------

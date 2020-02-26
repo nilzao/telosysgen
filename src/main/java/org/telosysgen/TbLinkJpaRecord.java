@@ -114,7 +114,7 @@ public class TbLinkJpaRecord implements Serializable {
 		this.cardinalityTg = cardinalityTg;
 	}
 
-	public String getCardinalityTg() {
+	public String getCardinality() {
 		return this.cardinalityTg;
 	}
 

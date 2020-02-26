@@ -15,11 +15,13 @@
                       <xs:complexType>
                         <xs:simpleContent>
                           <xs:extension base="xs:string">
+                            <xs:attribute type="xs:string" name="dbAutoIncremented" use="optional"/>
                             <xs:attribute type="xs:string" name="dbComment" use="optional"/>
                             <xs:attribute type="xs:string" name="dbDefaultValue" use="optional"/>
                             <xs:attribute type="xs:string" name="dbName" use="optional"/>
                             <xs:attribute type="xs:string" name="dbNotNull" use="optional"/>
                             <xs:attribute type="xs:string" name="dbPosition" use="optional"/>
+                            <xs:attribute type="xs:string" name="dbPrimaryKey" use="optional"/>
                             <xs:attribute type="xs:string" name="dbSize" use="optional"/>
                             <xs:attribute type="xs:string" name="dbTypeName" use="optional"/>
                             <xs:attribute type="xs:string" name="inputType" use="optional"/>

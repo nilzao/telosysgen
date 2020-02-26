@@ -36,11 +36,13 @@ import javax.xml.bind.annotation.XmlValue;
  *                               &lt;complexType>
  *                                 &lt;simpleContent>
  *                                   &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
+ *                                     &lt;attribute name="dbAutoIncremented" type="{http://www.w3.org/2001/XMLSchema}string" />
  *                                     &lt;attribute name="dbComment" type="{http://www.w3.org/2001/XMLSchema}string" />
  *                                     &lt;attribute name="dbDefaultValue" type="{http://www.w3.org/2001/XMLSchema}string" />
  *                                     &lt;attribute name="dbName" type="{http://www.w3.org/2001/XMLSchema}string" />
  *                                     &lt;attribute name="dbNotNull" type="{http://www.w3.org/2001/XMLSchema}string" />
  *                                     &lt;attribute name="dbPosition" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *                                     &lt;attribute name="dbPrimaryKey" type="{http://www.w3.org/2001/XMLSchema}string" />
  *                                     &lt;attribute name="dbSize" type="{http://www.w3.org/2001/XMLSchema}string" />
  *                                     &lt;attribute name="dbTypeName" type="{http://www.w3.org/2001/XMLSchema}string" />
  *                                     &lt;attribute name="inputType" type="{http://www.w3.org/2001/XMLSchema}string" />
@@ -214,11 +216,13 @@ public class Root {
      *                     &lt;complexType>
      *                       &lt;simpleContent>
      *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
+     *                           &lt;attribute name="dbAutoIncremented" type="{http://www.w3.org/2001/XMLSchema}string" />
      *                           &lt;attribute name="dbComment" type="{http://www.w3.org/2001/XMLSchema}string" />
      *                           &lt;attribute name="dbDefaultValue" type="{http://www.w3.org/2001/XMLSchema}string" />
      *                           &lt;attribute name="dbName" type="{http://www.w3.org/2001/XMLSchema}string" />
      *                           &lt;attribute name="dbNotNull" type="{http://www.w3.org/2001/XMLSchema}string" />
      *                           &lt;attribute name="dbPosition" type="{http://www.w3.org/2001/XMLSchema}string" />
+     *                           &lt;attribute name="dbPrimaryKey" type="{http://www.w3.org/2001/XMLSchema}string" />
      *                           &lt;attribute name="dbSize" type="{http://www.w3.org/2001/XMLSchema}string" />
      *                           &lt;attribute name="dbTypeName" type="{http://www.w3.org/2001/XMLSchema}string" />
      *                           &lt;attribute name="inputType" type="{http://www.w3.org/2001/XMLSchema}string" />
@@ -489,11 +493,13 @@ public class Root {
          *           &lt;complexType>
          *             &lt;simpleContent>
          *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
+         *                 &lt;attribute name="dbAutoIncremented" type="{http://www.w3.org/2001/XMLSchema}string" />
          *                 &lt;attribute name="dbComment" type="{http://www.w3.org/2001/XMLSchema}string" />
          *                 &lt;attribute name="dbDefaultValue" type="{http://www.w3.org/2001/XMLSchema}string" />
          *                 &lt;attribute name="dbName" type="{http://www.w3.org/2001/XMLSchema}string" />
          *                 &lt;attribute name="dbNotNull" type="{http://www.w3.org/2001/XMLSchema}string" />
          *                 &lt;attribute name="dbPosition" type="{http://www.w3.org/2001/XMLSchema}string" />
+         *                 &lt;attribute name="dbPrimaryKey" type="{http://www.w3.org/2001/XMLSchema}string" />
          *                 &lt;attribute name="dbSize" type="{http://www.w3.org/2001/XMLSchema}string" />
          *                 &lt;attribute name="dbTypeName" type="{http://www.w3.org/2001/XMLSchema}string" />
          *                 &lt;attribute name="inputType" type="{http://www.w3.org/2001/XMLSchema}string" />
@@ -864,11 +870,13 @@ public class Root {
              * &lt;complexType>
              *   &lt;simpleContent>
              *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
+             *       &lt;attribute name="dbAutoIncremented" type="{http://www.w3.org/2001/XMLSchema}string" />
              *       &lt;attribute name="dbComment" type="{http://www.w3.org/2001/XMLSchema}string" />
              *       &lt;attribute name="dbDefaultValue" type="{http://www.w3.org/2001/XMLSchema}string" />
              *       &lt;attribute name="dbName" type="{http://www.w3.org/2001/XMLSchema}string" />
              *       &lt;attribute name="dbNotNull" type="{http://www.w3.org/2001/XMLSchema}string" />
              *       &lt;attribute name="dbPosition" type="{http://www.w3.org/2001/XMLSchema}string" />
+             *       &lt;attribute name="dbPrimaryKey" type="{http://www.w3.org/2001/XMLSchema}string" />
              *       &lt;attribute name="dbSize" type="{http://www.w3.org/2001/XMLSchema}string" />
              *       &lt;attribute name="dbTypeName" type="{http://www.w3.org/2001/XMLSchema}string" />
              *       &lt;attribute name="inputType" type="{http://www.w3.org/2001/XMLSchema}string" />
@@ -894,6 +902,8 @@ public class Root {
 
                 @XmlValue
                 protected String value;
+                @XmlAttribute(name = "dbAutoIncremented")
+                protected String dbAutoIncremented;
                 @XmlAttribute(name = "dbComment")
                 protected String dbComment;
                 @XmlAttribute(name = "dbDefaultValue")
@@ -904,6 +914,8 @@ public class Root {
                 protected String dbNotNull;
                 @XmlAttribute(name = "dbPosition")
                 protected String dbPosition;
+                @XmlAttribute(name = "dbPrimaryKey")
+                protected String dbPrimaryKey;
                 @XmlAttribute(name = "dbSize")
                 protected String dbSize;
                 @XmlAttribute(name = "dbTypeName")
@@ -947,6 +959,30 @@ public class Root {
                  */
                 public void setValue(String value) {
                     this.value = value;
+                }
+
+                /**
+                 * Gets the value of the dbAutoIncremented property.
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link String }
+                 *     
+                 */
+                public String getDbAutoIncremented() {
+                    return dbAutoIncremented;
+                }
+
+                /**
+                 * Sets the value of the dbAutoIncremented property.
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link String }
+                 *     
+                 */
+                public void setDbAutoIncremented(String value) {
+                    this.dbAutoIncremented = value;
                 }
 
                 /**
@@ -1067,6 +1103,30 @@ public class Root {
                  */
                 public void setDbPosition(String value) {
                     this.dbPosition = value;
+                }
+
+                /**
+                 * Gets the value of the dbPrimaryKey property.
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link String }
+                 *     
+                 */
+                public String getDbPrimaryKey() {
+                    return dbPrimaryKey;
+                }
+
+                /**
+                 * Sets the value of the dbPrimaryKey property.
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link String }
+                 *     
+                 */
+                public void setDbPrimaryKey(String value) {
+                    this.dbPrimaryKey = value;
                 }
 
                 /**

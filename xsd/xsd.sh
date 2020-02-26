@@ -4,5 +4,5 @@ export LANGUAGE="en_US:"
 xjc -p org.telosysgen.jaxb.repo -npa -no-header \
    RepositoryModel.xsd
 
-#cp -r com ../src/main/java
-#rm -rf com
+cp -r org ../src/main/java
+rm -rf org
