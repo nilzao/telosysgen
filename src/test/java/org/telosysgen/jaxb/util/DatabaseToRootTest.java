@@ -31,12 +31,9 @@ public class DatabaseToRootTest {
 		TbDatabaseJpaRecord tbDatabaseJpaRecord = rootToTbDatabase.convert(root);
 		entityManager.persistAndFlush(tbDatabaseJpaRecord);
 
-		TbDatabaseJpaRecord tbDatabaseJpaRecordFromDb = entityManager.find(TbDatabaseJpaRecord.class, 1l);
 		DatabaseToRoot databaseToRoot = new DatabaseToRoot();
-		Root convert = databaseToRoot.convert(tbDatabaseJpaRecordFromDb);
-		System.out.println(convert);
+		Root convert = databaseToRoot.convert(tbDatabaseJpaRecord);
 		String marshal = MarshalXML.marshal(convert);
 		System.out.println(marshal);
-
 	}
 }
