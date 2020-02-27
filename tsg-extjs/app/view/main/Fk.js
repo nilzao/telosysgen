@@ -1,7 +1,7 @@
 Ext.define('TelosysGen.view.main.Fk', {
 	extend : 'Ext.grid.Panel',
 	xtype : 'fklist',
-	requires : [ 'TelosysGen.store.Fk', 'TelosysGen.view.grid.tbar.GridTbar' ],
+	requires : [ 'TelosysGen.store.Fk', 'TelosysGen.view.grid.tbar.GridTbar', 'TelosysGen.view.grid.tbar.TableCombo' ],
 	minHeight : 200,
 	title : 'Fks',
 	autoLoad : true,

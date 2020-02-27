@@ -10,7 +10,8 @@ Ext.define('TelosysGen.view.main.MainView', {
 	extend : 'Ext.container.Viewport',
 	xtype : 'app-main-view',
 
-	requires : [ 'Ext.data.proxy.Rest', 'TelosysGen.view.main.Database', 'TelosysGen.view.main.Table', 'TelosysGen.view.main.Column', 'TelosysGen.view.main.Fk', 'TelosysGen.view.main.Link' ],
+	requires : [ 'Ext.data.proxy.Rest', 'TelosysGen.view.main.Database', 'TelosysGen.view.main.Table', 'TelosysGen.view.main.Column', 'TelosysGen.view.main.Fk', 'TelosysGen.view.main.Link', 'TelosysGen.view.main.FkCol',
+			'TelosysGen.view.main.LinkJoinCol' ],
 	layout : 'border',
 
 	bodyBorder : false,
@@ -32,10 +33,10 @@ Ext.define('TelosysGen.view.main.MainView', {
 		maxWidth : 250,
 
 		rootVisible : true,
-		columnLines: true,
-		rowLines: true,
+		columnLines : true,
+		rowLines : true,
 		xtype : 'treepanel',
-		useArrows: true,
+		useArrows : true,
 		listeners : {
 			itemclick : function(thisObj, record, item, index, e, eOpts) {
 				var contentwindow = Ext.getCmp('contentwindow');
@@ -68,6 +69,7 @@ Ext.define('TelosysGen.view.main.MainView', {
 						xtypeTmp : 'fklist',
 						children : [ {
 							text : 'fkCols',
+							xtypeTmp : 'fkcollist',
 							leaf : true
 						} ]
 					}, {
@@ -76,6 +78,7 @@ Ext.define('TelosysGen.view.main.MainView', {
 						expanded : true,
 						children : [ {
 							text : 'linkJoinCols',
+							xtypeTmp : 'linkjoincollist',
 							leaf : true
 						} ]
 					} ]

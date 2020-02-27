@@ -7,9 +7,9 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-@RepositoryRestResource(collectionResourceRel = "joinColumn", path = "joinColumn")
+@RepositoryRestResource(collectionResourceRel = "linkJoinColumn", path = "linkJoinColumn")
 public interface JoinColumnRepository extends PagingAndSortingRepository<TbJoinColumnJpaRecord, Long> {
 
-	List<TbJoinColumnJpaRecord> findByLink_IdLink(@Param("linkId") Long linkId, Pageable pageable);
+	List<TbJoinColumnJpaRecord> findByLink_Table_IdTable(@Param("tableId") Long tableId, Pageable pageable);
 
 }

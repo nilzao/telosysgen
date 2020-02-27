@@ -28,8 +28,7 @@ Ext.define('TelosysGen.view.main.Database', {
 	}, {
 		text : 'Generation',
 		dataIndex : 'generation',
-		xtype : 'datecolumn',
-		editor : 'datefield'
+		xtype : 'datecolumn'
 	} ],
 	plugins : {
 		ptype : 'rowediting',

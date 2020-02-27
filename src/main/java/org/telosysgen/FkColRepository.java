@@ -10,6 +10,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(collectionResourceRel = "fkcol", path = "fkcol")
 public interface FkColRepository extends PagingAndSortingRepository<TbFkColJpaRecord, Long> {
 
-	List<TbFkColJpaRecord> findByFk_IdFk(@Param("fkId") Long fkId, Pageable pageable);
+	List<TbFkColJpaRecord> findByFk_Table_IdTable(@Param("tableId") Long tableId, Pageable pageable);
 
 }
