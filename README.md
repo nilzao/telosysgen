@@ -17,11 +17,17 @@ chromium/chrome without cors protection
 Extjs:
 
 extjs 6.2.0 (GPL v3)
+
 http://cdn.sencha.com/ext/gpl/ext-6.2.0-gpl.zip
 
+---
+
 Sencha cmd 7.1
+
 http://cdn.sencha.com/cmd/7.1.0.15/no-jre/SenchaCmd-7.1.0.15-linux-amd64.sh.zip
+
 or
+
 https://www.sencha.com/products/extjs/cmd-download/
 
 build extjs structure:
@@ -32,6 +38,9 @@ build extjs structure:
 ---
 
 h2db
+
 https://www.h2database.com/html/main.html
+
 or
+
 https://repo1.maven.org/maven2/com/h2database/h2/1.4.200/h2-1.4.200.jar
