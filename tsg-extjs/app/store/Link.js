@@ -3,6 +3,11 @@ Ext.define('TelosysGen.store.Link', {
 	alias : 'store.link',
 	model : 'TelosysGen.model.Link',
 	pageSize : 20,
+	listeners : {
+		beforesync : function(thisObj, eOpts) {
+			this.getProxy().setUrl(TelosysGen.Vars.baseStoreProxyUrl + this.getProxy().baseUrl);
+		}
+	},
 	proxy : {
 		type : 'rest',
 		url : TelosysGen.Vars.baseStoreProxyUrl + '/link',

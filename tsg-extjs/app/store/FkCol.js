@@ -3,6 +3,11 @@ Ext.define('TelosysGen.store.FkCol', {
 	alias : 'store.fkcol',
 	model : 'TelosysGen.model.FkCol',
 	pageSize : 20,
+	listeners : {
+		beforesync : function(thisObj, eOpts) {
+			this.getProxy().setUrl(TelosysGen.Vars.baseStoreProxyUrl + this.getProxy().baseUrl);
+		}
+	},
 	proxy : {
 		type : 'rest',
 		url : TelosysGen.Vars.baseStoreProxyUrl + '/fkcol',
