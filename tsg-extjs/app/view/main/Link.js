@@ -2,7 +2,7 @@ Ext.define('TelosysGen.view.main.Link', {
 	extend : 'Ext.grid.Panel',
 	xtype : 'linklist',
 	requires : [ 'TelosysGen.store.Link', 'TelosysGen.view.grid.tbar.GridTbar', 'TelosysGen.view.grid.tbar.TableCombo' ],
-	minHeight : 200,
+	minHeight : 400,
 	title : 'Links',
 	autoLoad : true,
 	store : {
@@ -86,5 +86,9 @@ Ext.define('TelosysGen.view.main.Link', {
 	plugins : {
 		ptype : 'rowediting',
 		clicksToEdit : 2
+	},
+	bbar : {
+		xtype : 'pagingtoolbar',
+		displayInfo : true
 	}
 });

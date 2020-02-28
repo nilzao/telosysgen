@@ -2,7 +2,7 @@ Ext.define('TelosysGen.view.main.LinkJoinCol', {
 	extend : 'Ext.grid.Panel',
 	xtype : 'linkjoincollist',
 	requires : [ 'TelosysGen.store.Link', 'TelosysGen.view.grid.tbar.GridTbar', 'TelosysGen.store.LinkJoinCol', 'TelosysGen.view.grid.tbar.LinkCombo' ],
-	minHeight : 200,
+	minHeight : 400,
 	title : 'Link Join Columns',
 	autoLoad : true,
 	store : {
@@ -48,5 +48,9 @@ Ext.define('TelosysGen.view.main.LinkJoinCol', {
 	plugins : {
 		ptype : 'rowediting',
 		clicksToEdit : 2
+	},
+	bbar : {
+		xtype : 'pagingtoolbar',
+		displayInfo : true
 	}
 });

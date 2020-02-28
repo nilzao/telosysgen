@@ -2,7 +2,7 @@ Ext.define('TelosysGen.view.main.Column', {
 	extend : 'Ext.grid.Panel',
 	xtype : 'columnlist',
 	requires : [ 'TelosysGen.store.Column', 'TelosysGen.view.grid.tbar.GridTbar', 'TelosysGen.view.grid.tbar.TableCombo' ],
-
+	minHeight : 400,
 	title : 'Column',
 	autoLoad : true,
 	store : {
@@ -79,5 +79,9 @@ Ext.define('TelosysGen.view.main.Column', {
 	plugins : {
 		ptype : 'rowediting',
 		clicksToEdit : 2
+	},
+	bbar : {
+		xtype : 'pagingtoolbar',
+		displayInfo : true
 	}
 });

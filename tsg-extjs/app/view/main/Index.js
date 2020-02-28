@@ -10,10 +10,7 @@ Ext.define('TelosysGen.view.main.Index', {
 	extend : 'Ext.tab.Panel',
 	xtype : 'app-index',
 
-	requires : [ 'Ext.plugin.Viewport', 'Ext.window.MessageBox',
-			'TelosysGen.view.main.MainController',
-			'TelosysGen.view.main.MainModel', 'TelosysGen.view.main.List',
-			'TelosysGen.view.main.Table' ],
+	requires : [ 'Ext.plugin.Viewport', 'Ext.window.MessageBox', 'TelosysGen.view.main.MainController', 'TelosysGen.view.main.MainModel', 'TelosysGen.view.main.List', 'TelosysGen.view.main.Table' ],
 
 	controller : 'main',
 	viewModel : 'main',
@@ -97,5 +94,9 @@ Ext.define('TelosysGen.view.main.Index', {
 		bind : {
 			html : '{loremIpsum}'
 		}
-	} ]
+	} ],
+	bbar : {
+		xtype : 'pagingtoolbar',
+		displayInfo : true
+	}
 });

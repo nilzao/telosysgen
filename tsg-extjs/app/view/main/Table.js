@@ -2,7 +2,7 @@ Ext.define('TelosysGen.view.main.Table', {
 	extend : 'Ext.grid.Panel',
 	xtype : 'tablelist',
 	requires : [ 'TelosysGen.store.Table', 'TelosysGen.view.grid.tbar.GridTbar' ],
-	minHeight : 200,
+	minHeight : 400,
 	title : 'Tables',
 	autoLoad : true,
 	store : {
@@ -62,5 +62,9 @@ Ext.define('TelosysGen.view.main.Table', {
 	plugins : {
 		ptype : 'rowediting',
 		clicksToEdit : 2
+	},
+	bbar : {
+		xtype : 'pagingtoolbar',
+		displayInfo : true
 	}
 });

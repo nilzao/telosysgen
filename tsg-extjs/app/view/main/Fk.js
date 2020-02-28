@@ -2,7 +2,7 @@ Ext.define('TelosysGen.view.main.Fk', {
 	extend : 'Ext.grid.Panel',
 	xtype : 'fklist',
 	requires : [ 'TelosysGen.store.Fk', 'TelosysGen.view.grid.tbar.GridTbar', 'TelosysGen.view.grid.tbar.TableCombo' ],
-	minHeight : 200,
+	minHeight : 400,
 	title : 'Fks',
 	autoLoad : true,
 	store : {
@@ -32,5 +32,9 @@ Ext.define('TelosysGen.view.main.Fk', {
 	plugins : {
 		ptype : 'rowediting',
 		clicksToEdit : 2
+	},
+	bbar : {
+		xtype : 'pagingtoolbar',
+		displayInfo : true
 	}
 });

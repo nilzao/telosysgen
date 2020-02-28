@@ -3,7 +3,7 @@ Ext.define('TelosysGen.view.main.Database', {
 	requires : [ 'Ext.form.field.Date' ],
 	xtype : 'databaselist',
 	requires : [ 'TelosysGen.store.Database', 'TelosysGen.view.grid.tbar.GridTbar' ],
-	minHeight : 200,
+	minHeight : 400,
 	title : 'Databases',
 	autoLoad : true,
 	store : {
@@ -33,5 +33,9 @@ Ext.define('TelosysGen.view.main.Database', {
 	plugins : {
 		ptype : 'rowediting',
 		clicksToEdit : 2
+	},
+	bbar : {
+		xtype : 'pagingtoolbar',
+		displayInfo : true
 	}
 });

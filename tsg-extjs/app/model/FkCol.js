@@ -31,5 +31,24 @@ Ext.define('TelosysGen.model.FkCol', {
 	}, {
 		name : 'value',
 		type : 'string'
-	} ]
+	} ],
+	proxy : {
+		type : 'rest',
+		url : TelosysGen.Vars.baseStoreProxyUrl + '/fkcol',
+		api : {
+			create : TelosysGen.Vars.baseStoreProxyUrl + '/fkcol',
+			update : TelosysGen.Vars.baseStoreProxyUrl + '/fkcol',
+			destroy : TelosysGen.Vars.baseStoreProxyUrl + '/fkcol'
+		},
+		baseUrl : '/fkcol',
+		reader : {
+			type : 'json',
+			rootProperty : '_embedded.fkcol',
+			totalProperty : 'page.totalElements'
+		},
+		writer : {
+			type : 'json',
+			writeAllFields : true
+		}
+	}
 });

@@ -46,5 +46,24 @@ Ext.define('TelosysGen.model.Column', {
 	}, {
 		name : 'notNull',
 		type : 'string'
-	} ]
+	} ],
+	proxy : {
+		type : 'rest',
+		url : TelosysGen.Vars.baseStoreProxyUrl + '/column',
+		api : {
+			create : TelosysGen.Vars.baseStoreProxyUrl + '/column',
+			update : TelosysGen.Vars.baseStoreProxyUrl + '/column',
+			destroy : TelosysGen.Vars.baseStoreProxyUrl + '/column'
+		},
+		baseUrl : '/column',
+		reader : {
+			type : 'json',
+			rootProperty : '_embedded.column',
+			totalProperty : 'page.totalElements'
+		},
+		writer : {
+			type : 'json',
+			writeAllFields : true
+		}
+	}
 });

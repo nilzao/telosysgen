@@ -13,5 +13,23 @@ Ext.define('TelosysGen.model.Database', {
 	}, {
 		name : 'generation',
 		type : 'date'
-	} ]
+	} ],
+	proxy : {
+		type : 'rest',
+		url : TelosysGen.Vars.baseStoreProxyUrl + '/database',
+		api : {
+			create : TelosysGen.Vars.baseStoreProxyUrl + '/database',
+			update : TelosysGen.Vars.baseStoreProxyUrl + '/database',
+			destroy : TelosysGen.Vars.baseStoreProxyUrl + '/database'
+		},
+		reader : {
+			type : 'json',
+			rootProperty : '_embedded.database',
+			totalProperty : 'page.totalElements'
+		},
+		writer : {
+			type : 'json',
+			writeAllFields : true
+		}
+	}
 });
