@@ -5,7 +5,8 @@
     "framework": "ext",
 
     "requires": [
-        "font-awesome"
+        "font-awesome",
+        "ux"
     ],
 
     "indexHtmlPath": "index.html",
