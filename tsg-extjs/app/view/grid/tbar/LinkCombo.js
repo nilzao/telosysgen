@@ -35,7 +35,6 @@ Ext.define('TelosysGen.view.grid.tbar.LinkCombo', {
 				});
 				thisObj.getStore().reload();
 				thisObj.setValue(extraParams.tableId);
-				console.log(thisObj);
 			}
 		}
 	}
