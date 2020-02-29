@@ -14,7 +14,16 @@ Ext.define('TelosysGen.view.main.Table', {
 		}, {
 			itemId : 'tableNameSearchField',
 			xtype : 'textfield',
-			emptyText : 'table name%'
+			emptyText : 'table name%',
+			listeners : {
+				afterrender : function(thisObj, eOpts) {
+					var gridStore = thisObj.findParentByType("grid").getStore();
+					var extraParams = gridStore.getProxy().getExtraParams()
+					if ((typeof extraParams.name === 'string')) {
+						thisObj.setValue(extraParams.name);
+					}
+				}
+			}
 		}, {
 			xtype : 'button',
 			text : 'Filter',

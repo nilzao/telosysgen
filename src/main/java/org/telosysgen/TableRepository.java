@@ -1,5 +1,7 @@
 package org.telosysgen;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
@@ -12,4 +14,8 @@ public interface TableRepository extends PagingAndSortingRepository<TbTableJpaRe
 
 	@Query("SELECT obj from TbTableJpaRecord obj where obj.name like :name%")
 	Page<TbTableJpaRecord> findByName(@Param("name") String name, Pageable pageable);
+
+	@Query("SELECT obj from TbTableJpaRecord obj where obj.idTable = :tableId")
+	List<TbTableJpaRecord> findByIdTable(@Param("tableId") Long tableId, Pageable pageable);
+
 }
