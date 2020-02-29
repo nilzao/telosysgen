@@ -17,7 +17,7 @@ Ext.define('TelosysGen.view.grid.tbar.TableCombo', {
 			gridStore.getProxy().setExtraParams({
 				tableId : record.getData().id
 			});
-			gridStore.load();
+			gridStore.reload();
 		},
 		beforequery : function(queryPlan, eOpts) {
 			if (queryPlan.query == "") {

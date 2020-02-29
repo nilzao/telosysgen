@@ -34,7 +34,7 @@ public class TableRepositoryTest {
 
 	@Test
 	public void find() {
-		TbTableJpaRecord tbTableJpaRecord = tableRepository.findByName("table test", null).get(0);
+		TbTableJpaRecord tbTableJpaRecord = tableRepository.findByName("table test", null).get().findFirst().get();
 		assertEquals(tbTableJpaRecord.getName(), "table test");
 		assertEquals(tbTableJpaRecord.getDatabase().getDatabaseName(), "arroy");
 	}

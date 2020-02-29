@@ -26,7 +26,7 @@ Ext.define('TelosysGen.view.main.Table', {
 				gridStore.getProxy().setExtraParams({
 					name : tableNameSearchField
 				});
-				gridStore.load();
+				gridStore.reload();
 			}
 		} ]
 	},
