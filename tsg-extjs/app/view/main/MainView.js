@@ -13,21 +13,23 @@ Ext.define('TelosysGen.view.main.MainView', {
 	requires : [ 'Ext.data.proxy.Rest', 'TelosysGen.view.main.Database', 'TelosysGen.view.main.Table', 'TelosysGen.view.main.Column', 'TelosysGen.view.main.Fk', 'TelosysGen.view.main.Link', 'TelosysGen.view.main.FkCol',
 			'TelosysGen.view.main.LinkJoinCol' ],
 	layout : 'border',
-
+	id : 'mainLayout',
 	bodyBorder : false,
 
 	defaults : {
 		split : true,
-		bodyPadding : 10
+		bodyPadding : 10,
+		id : 'contentwindow',
+		margin : '5 0 0 0'
 	},
 
 	items : [ {
 		title : 'TelosysGen',
 		region : 'west',
+		id : 'menuwindow',
 		floatable : false,
 		collapsible : true,
 		// collapseMode : 'mini',
-		margin : '5 0 0 0',
 		width : 210,
 		minWidth : 100,
 		maxWidth : 250,
@@ -39,11 +41,17 @@ Ext.define('TelosysGen.view.main.MainView', {
 		useArrows : true,
 		listeners : {
 			itemclick : function(thisObj, record, item, index, e, eOpts) {
-				var contentwindow = Ext.getCmp('contentwindow');
-				contentwindow.removeAll(true);
+				// var contentwindow = Ext.getCmp('contentwindow');
+				// contentwindow.removeAll(true);
 				if (typeof record.getData().xtypeTmp !== 'undefined') {
-					contentwindow.add({
-						xtype : record.getData().xtypeTmp
+					// contentwindow.add({
+					// xtype : record.getData().xtypeTmp
+					// });
+					var mainlayout = Ext.getCmp('mainLayout');
+					mainlayout.remove(Ext.getCmp('contentwindow'));
+					mainlayout.add({
+						xtype : record.getData().xtypeTmp,
+						region : 'center'
 					});
 				}
 			}
@@ -87,10 +95,8 @@ Ext.define('TelosysGen.view.main.MainView', {
 		},
 	}, {
 		title : 'Main Content',
-		id : 'contentwindow',
 		collapsible : false,
 		region : 'center',
-		margin : '5 0 0 0',
 		items : {
 			html : '<h2>Main Page</h2><p>This is where the main content would go</p>'
 		}
