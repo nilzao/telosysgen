@@ -30,6 +30,7 @@ telosys/
 .settings/
 
 /tsg-extjs/*
+/tsg-extjs/app/store/Personnel.js
 !/tsg-extjs/app/
 !/tsg-extjs/app.js
 !/tsg-extjs/app.json
@@ -37,3 +38,4 @@ telosys/
 
 # h2 tracedb
 *.trace.db
+
