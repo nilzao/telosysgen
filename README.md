@@ -1,3 +1,5 @@
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/nilzao/telosysgen) 
+
 # telosysgen
 
 java spring framework restful web-server + extjs frontend to edit huge .dbrep telosys files
