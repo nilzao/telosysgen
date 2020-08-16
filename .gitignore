@@ -36,6 +36,20 @@ telosys/
 !/tsg-extjs/app.json
 
 
-# h2 tracedb
-*.trace.db
+### h2db ###
+/h2db/
 
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### Telosys ###
+/TelosysTools/downloads
+/TelosysTools/lib
+/TelosysTools/templates/*
+/TelosysTools/stats
+/tmp
+/src/main/java/**/*Gen.java
+/TelosysTools/telosys.env
