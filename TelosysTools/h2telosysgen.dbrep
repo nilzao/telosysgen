@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Telosys Database Repository --><root>
+    <tableList databaseId="1" databaseName="h2telosysgen" databaseProductName="H2" generation="2020-08-11 16:00:06">
+        <table catalog="TELOSYSGEN" databaseComment="" databaseType="TABLE" javaBean="Column" name="TB_COLUMN" schema="PUBLIC">
+            <column dbComment="primary comment" dbDefaultValue="" dbName="ID_COLUMN" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="idColumn" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id column" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="DB_AUTOINCREMENTED" dbNotNull="false" dbPosition="2" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="dbAutoIncremented" javaType="java.lang.String" jdbcTypeCode="12" label="Db autoincremented" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="DB_COMMENT" dbNotNull="false" dbPosition="3" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="dbComment" javaType="java.lang.String" jdbcTypeCode="12" label="Db comment" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="DB_DEFAULT_VALUE" dbNotNull="false" dbPosition="4" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="dbDefaultValue" javaType="java.lang.String" jdbcTypeCode="12" label="Db default value" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="DB_NAME" dbNotNull="false" dbPosition="5" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="dbName" javaType="java.lang.String" jdbcTypeCode="12" label="Db name" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="DB_NOT_NULL" dbNotNull="false" dbPosition="6" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="dbNotNull" javaType="java.lang.String" jdbcTypeCode="12" label="Db not null" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="DB_POSITION" dbNotNull="false" dbPosition="7" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="dbPosition" javaType="java.lang.String" jdbcTypeCode="12" label="Db position" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="DB_PRIMARY_KEY" dbNotNull="false" dbPosition="8" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="dbPrimaryKey" javaType="java.lang.String" jdbcTypeCode="12" label="Db primary key" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="DB_SIZE" dbNotNull="false" dbPosition="9" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="dbSize" javaType="java.lang.String" jdbcTypeCode="12" label="Db size" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="DB_TYPE_NAME" dbNotNull="false" dbPosition="10" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="dbTypeName" javaType="java.lang.String" jdbcTypeCode="12" label="Db type name" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="INPUT_TYPE" dbNotNull="false" dbPosition="11" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="inputType" javaType="java.lang.String" jdbcTypeCode="12" label="Input type" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="JAVA_NAME" dbNotNull="false" dbPosition="12" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="javaName" javaType="java.lang.String" jdbcTypeCode="12" label="Java name" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="JAVA_TYPE" dbNotNull="false" dbPosition="13" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="javaType" javaType="java.lang.String" jdbcTypeCode="12" label="Java type" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="JDBC_TYPE_CODE" dbNotNull="false" dbPosition="14" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="jdbcTypeCode" javaType="java.lang.String" jdbcTypeCode="12" label="Jdbc type code" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="LABEL" dbNotNull="false" dbPosition="15" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="label" javaType="java.lang.String" jdbcTypeCode="12" label="Label" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="MAX_LENGTH" dbNotNull="false" dbPosition="16" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="maxLength" javaType="java.lang.String" jdbcTypeCode="12" label="Max length" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="NOT_NULL" dbNotNull="false" dbPosition="17" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="notNull" javaType="java.lang.String" jdbcTypeCode="12" label="Not null" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="SELECTED" dbNotNull="false" dbPosition="18" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="selected" javaType="java.lang.String" jdbcTypeCode="12" label="Selected" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="ID_TABLE" dbNotNull="false" dbPosition="19" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="idTable" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id table" notNull="false" selected="true"/>
+            <fk name="FK_COLUMN_TABLE">
+                <fkcol colname="ID_TABLE" colref="ID_TABLE" deferrable="7" deleterule="1" sequence="1" tablename="TB_COLUMN" tableref="TB_TABLE" updaterule="1"/>
+            </fk>
+            <link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_COLUMN_TABLE" id="LINK_FK_FK_COLUMN_TABLE_O" inverseSideOf="" javaName="tbTable" javaType="TbTable" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="TB_COLUMN" targetEntity="TbTable" targetTableName="TB_TABLE" used="true">
+                <joinColumns>
+                    <joinColumn insertable="false" name="ID_TABLE" nullable="true" referencedColumnName="ID_TABLE" unique="false" updatable="false"/>
+                </joinColumns>
+            </link>
+        </table>
+        <table catalog="TELOSYSGEN" databaseComment="" databaseType="TABLE" javaBean="Database" name="TB_DATABASE" schema="PUBLIC">
+            <column dbComment="" dbDefaultValue="" dbName="ID_DATABASE" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="idDatabase" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id database" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="GENERATION" dbNotNull="false" dbPosition="2" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="generation" javaType="java.lang.String" jdbcTypeCode="12" label="Generation" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="NAME" dbNotNull="false" dbPosition="3" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="databaseName" javaType="java.lang.String" jdbcTypeCode="12" label="Name" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="PRODUCT_NAME" dbNotNull="false" dbPosition="4" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="databaseProductName" javaType="java.lang.String" jdbcTypeCode="12" label="Product name" maxLength="100" notNull="false" selected="true"/>
+            <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_TABLE_DATABASE" id="LINK_FK_FK_TABLE_DATABASE_I" inverseSideOf="LINK_FK_FK_TABLE_DATABASE_O" javaName="listOfTbTable" javaType="java.util.List" joinTableName="" mappedBy="tbDatabase" optional="" owningSide="false" sourceTableName="TB_DATABASE" targetEntity="TbTable" targetTableName="TB_TABLE" used="true"/>
+        </table>
+        <table catalog="TELOSYSGEN" databaseComment="" databaseType="TABLE" javaBean="Fk" name="TB_FK" schema="PUBLIC">
+            <column dbComment="" dbDefaultValue="" dbName="ID_FK" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="idFk" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id fk" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="NAME" dbNotNull="false" dbPosition="3" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="name" javaType="java.lang.String" jdbcTypeCode="12" label="Name" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="ID_TABLE" dbNotNull="false" dbPosition="4" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="idTable" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id table" notNull="false" selected="true"/>
+            <fk name="FK_FK_TABLE">
+                <fkcol colname="ID_TABLE" colref="ID_TABLE" deferrable="7" deleterule="1" sequence="1" tablename="TB_FK" tableref="TB_TABLE" updaterule="1"/>
+            </fk>
+            <link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_FK_TABLE" id="LINK_FK_FK_FK_TABLE_O" inverseSideOf="" javaName="tbTable" javaType="TbTable" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="TB_FK" targetEntity="TbTable" targetTableName="TB_TABLE" used="true">
+                <joinColumns>
+                    <joinColumn insertable="false" name="ID_TABLE" nullable="true" referencedColumnName="ID_TABLE" unique="false" updatable="false"/>
+                </joinColumns>
+            </link>
+            <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_COL_FK" id="LINK_FK_FK_COL_FK_I" inverseSideOf="LINK_FK_FK_COL_FK_O" javaName="listOfTbFkCol" javaType="java.util.List" joinTableName="" mappedBy="tbFk" optional="" owningSide="false" sourceTableName="TB_FK" targetEntity="TbFkCol" targetTableName="TB_FK_COL" used="true"/>
+        </table>
+        <table catalog="TELOSYSGEN" databaseComment="" databaseType="TABLE" javaBean="FkCol" name="TB_FK_COL" schema="PUBLIC">
+            <column dbComment="" dbDefaultValue="" dbName="ID_FK_COL" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="idFkCol" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id fk col" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="COLNAME" dbNotNull="false" dbPosition="2" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="colname" javaType="java.lang.String" jdbcTypeCode="12" label="Colname" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="COLREF" dbNotNull="false" dbPosition="3" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="colref" javaType="java.lang.String" jdbcTypeCode="12" label="Colref" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="DEFERRABLE" dbNotNull="false" dbPosition="4" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="deferrable" javaType="java.lang.String" jdbcTypeCode="12" label="Deferrable" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="DELETERULE" dbNotNull="false" dbPosition="5" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="deleterule" javaType="java.lang.String" jdbcTypeCode="12" label="Deleterule" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="COLSEQUENCE" dbNotNull="false" dbPosition="6" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="sequence" javaType="java.lang.String" jdbcTypeCode="12" label="Sequence" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="TABLENAME" dbNotNull="false" dbPosition="7" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="tablename" javaType="java.lang.String" jdbcTypeCode="12" label="Tablename" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="TABLEREF" dbNotNull="false" dbPosition="8" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="tableref" javaType="java.lang.String" jdbcTypeCode="12" label="Tableref" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="UPDATERULE" dbNotNull="false" dbPosition="9" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="updaterule" javaType="java.lang.String" jdbcTypeCode="12" label="Updaterule" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="VALUE" dbNotNull="false" dbPosition="10" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="value" javaType="java.lang.String" jdbcTypeCode="12" label="Value" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="ID_FK" dbNotNull="false" dbPosition="11" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="idFk" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id fk" notNull="false" selected="true"/>
+            <fk name="FK_COL_FK">
+                <fkcol colname="ID_FK" colref="ID_FK" deferrable="7" deleterule="1" sequence="1" tablename="TB_FK_COL" tableref="TB_FK" updaterule="1"/>
+            </fk>
+            <link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_COL_FK" id="LINK_FK_FK_COL_FK_O" inverseSideOf="" javaName="tbFk" javaType="TbFk" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="TB_FK_COL" targetEntity="TbFk" targetTableName="TB_FK" used="true">
+                <joinColumns>
+                    <joinColumn insertable="false" name="ID_FK" nullable="true" referencedColumnName="ID_FK" unique="false" updatable="false"/>
+                </joinColumns>
+            </link>
+        </table>
+        <table catalog="TELOSYSGEN" databaseComment="" databaseType="TABLE" javaBean="Link" name="TB_LINK" schema="PUBLIC">
+            <column dbComment="" dbDefaultValue="" dbName="ID_LINK" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="idLink" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id link" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="CARDINALITY_TG" dbNotNull="false" dbPosition="2" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="cardinality" javaType="java.lang.String" jdbcTypeCode="12" label="Cardinality" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="CASCADE_TG" dbNotNull="false" dbPosition="3" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="cascade" javaType="java.lang.String" jdbcTypeCode="12" label="Cascade" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="FETCH_TG" dbNotNull="false" dbPosition="4" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="fetch" javaType="java.lang.String" jdbcTypeCode="12" label="Fetch" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="FOREIGN_KEY_NAME" dbNotNull="false" dbPosition="5" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="foreignKeyName" javaType="java.lang.String" jdbcTypeCode="12" label="Foreign key name" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="ID_TMP" dbNotNull="false" dbPosition="6" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="idTmp" javaType="java.lang.String" jdbcTypeCode="12" label="IdTmp" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="INVERSE_SIDE_OF" dbNotNull="false" dbPosition="7" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="inverseSideOf" javaType="java.lang.String" jdbcTypeCode="12" label="Inverse side of" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="JAVA_NAME" dbNotNull="false" dbPosition="8" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="javaName" javaType="java.lang.String" jdbcTypeCode="12" label="Java name" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="JAVA_TYPE" dbNotNull="false" dbPosition="9" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="javaType" javaType="java.lang.String" jdbcTypeCode="12" label="Java type" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="JOIN_TABLE_NAME" dbNotNull="false" dbPosition="10" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="joinTableName" javaType="java.lang.String" jdbcTypeCode="12" label="Join table name" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="MAPPED_BY" dbNotNull="false" dbPosition="11" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="mappedBy" javaType="java.lang.String" jdbcTypeCode="12" label="Mapped by" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="OPTIONAL" dbNotNull="false" dbPosition="12" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="optional" javaType="java.lang.String" jdbcTypeCode="12" label="Optional" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="OWNING_SIDE" dbNotNull="false" dbPosition="13" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="owningSide" javaType="java.lang.String" jdbcTypeCode="12" label="Owning side" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="SOURCE_TABLE_NAME" dbNotNull="false" dbPosition="14" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="sourceTableName" javaType="java.lang.String" jdbcTypeCode="12" label="Source table name" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="TARGET_ENTITY" dbNotNull="false" dbPosition="15" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="targetEntity" javaType="java.lang.String" jdbcTypeCode="12" label="Target entity" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="TARGET_TABLE_NAME" dbNotNull="false" dbPosition="16" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="targetTableName" javaType="java.lang.String" jdbcTypeCode="12" label="Target table name" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="USED" dbNotNull="false" dbPosition="17" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="used" javaType="java.lang.String" jdbcTypeCode="12" label="Used" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="ID_TABLE" dbNotNull="false" dbPosition="18" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="idTable" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id table" notNull="false" selected="true"/>
+            <fk name="FK_LINK_TABLE">
+                <fkcol colname="ID_TABLE" colref="ID_TABLE" deferrable="7" deleterule="1" sequence="1" tablename="TB_LINK" tableref="TB_TABLE" updaterule="1"/>
+            </fk>
+            <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_JOINCOLUN_LINK" id="LINK_FK_FK_JOINCOLUN_LINK_I" inverseSideOf="LINK_FK_FK_JOINCOLUN_LINK_O" javaName="listOfTbLinkJoincolumn" javaType="java.util.List" joinTableName="" mappedBy="tbLink" optional="" owningSide="false" sourceTableName="TB_LINK" targetEntity="TbLinkJoincolumn" targetTableName="TB_LINK_JOINCOLUMN" used="true"/>
+            <link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_LINK_TABLE" id="LINK_FK_FK_LINK_TABLE_O" inverseSideOf="" javaName="tbTable" javaType="TbTable" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="TB_LINK" targetEntity="TbTable" targetTableName="TB_TABLE" used="true">
+                <joinColumns>
+                    <joinColumn insertable="false" name="ID_TABLE" nullable="true" referencedColumnName="ID_TABLE" unique="false" updatable="false"/>
+                </joinColumns>
+            </link>
+        </table>
+        <table catalog="TELOSYSGEN" databaseComment="" databaseType="TABLE" javaBean="LinkJoincolumn" name="TB_LINK_JOINCOLUMN" schema="PUBLIC">
+            <column dbComment="" dbDefaultValue="" dbName="ID_JOINCOLUMN" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="idJoincolumn" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id joincolumn" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="INSERTABLE" dbNotNull="false" dbPosition="2" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="insertable" javaType="java.lang.String" jdbcTypeCode="12" label="Insertable" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="NAME" dbNotNull="false" dbPosition="3" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="name" javaType="java.lang.String" jdbcTypeCode="12" label="Name" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="NULLABLE_TG" dbNotNull="false" dbPosition="4" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="nullable" javaType="java.lang.String" jdbcTypeCode="12" label="Nullable" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="REFERENCEDCOLUMNNAME" dbNotNull="false" dbPosition="5" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="referencedColumnName" javaType="java.lang.String" jdbcTypeCode="12" label="Referenced Column Name" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="UNIQUE_TG" dbNotNull="false" dbPosition="6" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="unique" javaType="java.lang.String" jdbcTypeCode="12" label="Unique" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="UPDATABLE" dbNotNull="false" dbPosition="7" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="updatable" javaType="java.lang.String" jdbcTypeCode="12" label="Updatable" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="ID_LINK" dbNotNull="false" dbPosition="8" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="idLink" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id link" notNull="false" selected="true"/>
+            <fk name="FK_JOINCOLUN_LINK">
+                <fkcol colname="ID_LINK" colref="ID_LINK" deferrable="7" deleterule="1" sequence="1" tablename="TB_LINK_JOINCOLUMN" tableref="TB_LINK" updaterule="1"/>
+            </fk>
+            <link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_JOINCOLUN_LINK" id="LINK_FK_FK_JOINCOLUN_LINK_O" inverseSideOf="" javaName="tbLink" javaType="TbLink" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="TB_LINK_JOINCOLUMN" targetEntity="TbLink" targetTableName="TB_LINK" used="true">
+                <joinColumns>
+                    <joinColumn insertable="false" name="ID_LINK" nullable="true" referencedColumnName="ID_LINK" unique="false" updatable="false"/>
+                </joinColumns>
+            </link>
+        </table>
+        <table catalog="TELOSYSGEN" databaseComment="" databaseType="TABLE" javaBean="Table" name="TB_TABLE" schema="PUBLIC">
+            <column dbComment="" dbDefaultValue="" dbName="ID_TABLE" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="idTable" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id table" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="CATALOG" dbNotNull="false" dbPosition="2" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="catalog" javaType="java.lang.String" jdbcTypeCode="12" label="Catalog" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="DB_COMMENT" dbNotNull="false" dbPosition="3" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="databaseComment" javaType="java.lang.String" jdbcTypeCode="12" label="Database Comment" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="JAVA_BEAN" dbNotNull="false" dbPosition="4" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="javaBean" javaType="java.lang.String" jdbcTypeCode="12" label="Java bean" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="NAME" dbNotNull="false" dbPosition="5" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="name" javaType="java.lang.String" jdbcTypeCode="12" label="Name" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="SCHEMA" dbNotNull="false" dbPosition="6" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="schema" javaType="java.lang.String" jdbcTypeCode="12" label="Schema" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="DB_TYPE" dbNotNull="false" dbPosition="7" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="databaseType" javaType="java.lang.String" jdbcTypeCode="12" label="Database Type" maxLength="100" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="ID_DATABASE" dbNotNull="false" dbPosition="8" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="idDatabase" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id database" notNull="false" selected="true"/>
+            <fk name="FK_TABLE_DATABASE">
+                <fkcol colname="ID_DATABASE" colref="ID_DATABASE" deferrable="7" deleterule="1" sequence="1" tablename="TB_TABLE" tableref="TB_DATABASE" updaterule="1"/>
+            </fk>
+            <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_LINK_TABLE" id="LINK_FK_FK_LINK_TABLE_I" inverseSideOf="LINK_FK_FK_LINK_TABLE_O" javaName="listOfTbLink" javaType="java.util.List" joinTableName="" mappedBy="tbTable" optional="" owningSide="false" sourceTableName="TB_TABLE" targetEntity="TbLink" targetTableName="TB_LINK" used="true"/>
+            <link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_TABLE_DATABASE" id="LINK_FK_FK_TABLE_DATABASE_O" inverseSideOf="" javaName="tbDatabase" javaType="TbDatabase" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="TB_TABLE" targetEntity="TbDatabase" targetTableName="TB_DATABASE" used="true">
+                <joinColumns>
+                    <joinColumn insertable="false" name="ID_DATABASE" nullable="true" referencedColumnName="ID_DATABASE" unique="false" updatable="false"/>
+                </joinColumns>
+            </link>
+            <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_COLUMN_TABLE" id="LINK_FK_FK_COLUMN_TABLE_I" inverseSideOf="LINK_FK_FK_COLUMN_TABLE_O" javaName="listOfTbColumn" javaType="java.util.List" joinTableName="" mappedBy="tbTable" optional="" owningSide="false" sourceTableName="TB_TABLE" targetEntity="TbColumn" targetTableName="TB_COLUMN" used="true"/>
+            <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_FK_TABLE" id="LINK_FK_FK_FK_TABLE_I" inverseSideOf="LINK_FK_FK_FK_TABLE_O" javaName="listOfTbFk" javaType="java.util.List" joinTableName="" mappedBy="tbTable" optional="" owningSide="false" sourceTableName="TB_TABLE" targetEntity="TbFk" targetTableName="TB_FK" used="true"/>
+        </table>
+    </tableList>
+</root>
