@@ -58,8 +58,21 @@ tl bash file:
     
 ---
 
+Arfour templates
+
+https://github.com/telosys-templates-arfour
+
+---
+
 to build the spring project must generate the sources with the scripts:
 
     tl-spring-restful-backend-edit-r4.sh
     tl-spring-restful-backend-gen-r4.sh
     tl-spring-restful-extjs-config-r4.sh
+
+---
+
+to run the extjs project must generate the sources with the scripts:
+
+    tl-extjs-edit-r4.sh
+    tl-extjs-gen-r4.sh
