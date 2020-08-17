@@ -10,7 +10,7 @@
     </parent>
     <groupId>io.github.nilzao</groupId>
     <artifactId>telosysgen</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>telosysgen</name>
     <description>Telosys dbrep editor</description>
 
