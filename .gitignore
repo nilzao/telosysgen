@@ -34,10 +34,12 @@ telosys/
 !/tsg-extjs/app/
 !/tsg-extjs/app.js
 !/tsg-extjs/app.json
-!/tsg-extjs/TelosysTools/launchers/*
+!/tsg-extjs/TelosysTools/databases.dbcfg
 !/tsg-extjs/TelosysTools/h2telosysgen.dbrep
 !/tsg-extjs/TelosysTools/telosys-tools.cfg
-
+!/tsg-extjs/TelosysTools/launchers/*
+!/tsg-extjs/tl-extjs-edit-r4.sh
+!/tsg-extjs/tl-extjs-gen-r4.sh
 ### h2db ###
 /h2db/
 
