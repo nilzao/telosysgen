@@ -39,8 +39,6 @@ telosys/
 !/tsg-extjs/TelosysTools/h2telosysgen.dbrep
 !/tsg-extjs/TelosysTools/telosys-tools.cfg
 !/tsg-extjs/TelosysTools/launchers/*
-!/tsg-extjs/tl-extjs-edit-r4.sh
-!/tsg-extjs/tl-extjs-gen-r4.sh
 ### h2db ###
 /h2db/
 
