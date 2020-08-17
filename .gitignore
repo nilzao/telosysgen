@@ -31,6 +31,7 @@ telosys/
 
 /tsg-extjs/*
 /tsg-extjs/app/store/Personnel.js
+/tsg-extjs/app/**/*Gen.js
 !/tsg-extjs/app/
 !/tsg-extjs/app.js
 !/tsg-extjs/app.json
