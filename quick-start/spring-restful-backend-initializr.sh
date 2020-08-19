@@ -57,8 +57,8 @@ TEST_SRC=src/test/java
 TEST_RES=src/test/resources
 DOC=doc
 TMP=tmp
-ROOT_PKG='${GROUPID}'
-ENTITY_PKG='${GROUPID}'.entity
+ROOT_PKG='${GROUPID}'.'${ARTIFACTID}'
+ENTITY_PKG='${GROUPID}'.'${ARTIFACTID}'.entity
 # -------------------------------------------
 # --- Project Specific Variables
 ProjectVariable.MAVEN_ARTIFACT_ID='${ARTIFACTID}'
